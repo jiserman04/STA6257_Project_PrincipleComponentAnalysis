@@ -1,6 +1,6 @@
 ---
 title: "Principle Component Analysis"
-author: "Jordan Iserman"
+author: "Jordan Iserman, Jeshurun Moses, & Harsha Pola"
 date: '`r Sys.Date()`'
 format:
   html:
@@ -20,10 +20,13 @@ editor:
 ## Introduction
 
 Principal Component Analysis (PCA) is a statistical technique that can be used to reduce the dimensionality of complex data sets and highlight key variables. PCA was used for analysis of player techniques in different sports, such as football, basketball, rugby, dance, diving, gymnastics, skiing and more to figure out what those variables are that could have an important influence on the development of training programs, performance analysis or identification of talents within these sports.
+
 PCA was used for robust data analysis to identify the most relevant variables (Pino-Ortega et al.,) through PCA in soccer, basketball, and rugby. The systematic review encompassed 34 studies and employed PCA for robust data analysis. In the realm of sports science, this has profound implications: Performance Enhancement, Tailored Training Programs, Performance Analysis, and Talent Identification.
+
 PCA can assist in pinpointing the pivotal factors contributing to athletes' performance, design personalized training regimes, cater to individual athletes' strengths and weaknesses, facilitate in-depth analysis of performance data, offer insights into areas for improvement, and help in identifying and nurturing talented athletes, crucial for sports development.
 
 A combination approach involving PCA, Random Forest and Genetic Algorithm to classify sport actions based on 3D motion data (Hao Weiwei). PCA has been used in order to reduce dimensionality of the data, a hybrid classification scheme combining PCA and RF is proposed. The report presents an innovative approach to the classification of sporting actions which relies on 3D motion data derived from advanced techniques, such as PCA, RF and GA, with a view to achieving superior accuracy.
+
 Finally, PCA is a key Statistical Method for Sports Science which may contribute to reducing the dimensionality of complex data sets and highlighting critical variables. It will have a profound impact on the enhancement of performance, tailored training programs, analysis of individual performances and identification of talent. Innovation approaches to the use of PCAs in sports science were demonstrated by (Pino Oriente et al.) and (Yutao Weiwei).
 
 
