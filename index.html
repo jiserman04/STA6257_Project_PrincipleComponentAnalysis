@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jordan Iserman, Jeshurun Moses, &amp; Harsha Pola">
-<meta name="dcterms.date" content="2023-09-25">
+<meta name="dcterms.date" content="2023-10-02">
 
 <title>Principle Component Analysis</title>
 <style>
@@ -21,7 +21,60 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
-</style>
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+
+div.csl-bib-body { }
+div.csl-entry {
+clear: both;
+}
+.hanging-indent div.csl-entry {
+margin-left:2em;
+text-indent:-2em;
+}
+div.csl-left-margin {
+min-width:2em;
+float:left;
+}
+div.csl-right-inline {
+margin-left:2em;
+padding-left:1em;
+}
+div.csl-indent {
+margin-left: 2em;
+}</style>
 
 
 <script>/*!
@@ -3008,7 +3061,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 25, 2023</p>
+      <p class="date">October 2, 2023</p>
     </div>
   </div>
   
@@ -3020,23 +3073,79 @@ vertical-align: -.125em;
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Principal Component Analysis (PCA) is a statistical technique that can be used to reduce the dimensionality of complex data sets and highlight key variables. PCA was used for analysis of player techniques in different sports, such as football, basketball, rugby, dance, diving, gymnastics, skiing and more to figure out what those variables are that could have an important influence on the development of training programs, performance analysis or identification of talents within these sports.</p>
-<p>PCA was used for robust data analysis to identify the most relevant variables (Pino-Ortega et al.,) through PCA in soccer, basketball, and rugby. The systematic review encompassed 34 studies and employed PCA for robust data analysis. In the realm of sports science, this has profound implications: Performance Enhancement, Tailored Training Programs, Performance Analysis, and Talent Identification.</p>
+<p>Principal Component Analysis (PCA) is a statistical technique that can be used to reduce the dimensionality of complex data sets and highlight key variables. PCA was used for analysis of player techniques in different sports, such as football, basketball, rugby, dance, diving, gymnastics, skiing and more to figure out what those variables are that could have an important influence on the development of training programs, performance analysis or identification of talents within these sports <span class="citation" data-cites="bro">(<a href="#ref-bro" role="doc-biblioref">Age K Smilde 2014</a>)</span>.</p>
+<p>PCA was used for robust data analysis to identify the most relevant variables <span class="citation" data-cites="pino">(<a href="#ref-pino" role="doc-biblioref">Pino-Ortega 2021</a>)</span> through PCA in soccer, basketball, and rugby. The systematic review encompassed 34 studies and employed PCA for robust data analysis. In the realm of sports science, this has profound implications: Performance Enhancement, Tailored Training Programs, Performance Analysis, and Talent Identification.</p>
 <p>PCA can assist in pinpointing the pivotal factors contributing to athletes’ performance, design personalized training regimes, cater to individual athletes’ strengths and weaknesses, facilitate in-depth analysis of performance data, offer insights into areas for improvement, and help in identifying and nurturing talented athletes, crucial for sports development.</p>
-<p>A combination approach involving PCA, Random Forest and Genetic Algorithm to classify sport actions based on 3D motion data (Hao Weiwei). PCA has been used in order to reduce dimensionality of the data, a hybrid classification scheme combining PCA and RF is proposed. The report presents an innovative approach to the classification of sporting actions which relies on 3D motion data derived from advanced techniques, such as PCA, RF and GA, with a view to achieving superior accuracy.</p>
-<p>Finally, PCA is a key Statistical Method for Sports Science which may contribute to reducing the dimensionality of complex data sets and highlighting critical variables. It will have a profound impact on the enhancement of performance, tailored training programs, analysis of individual performances and identification of talent. Innovation approaches to the use of PCAs in sports science were demonstrated by (Pino Oriente et al.) and (Yutao Weiwei).</p>
+<p>A combination approach involving PCA, Random Forest and Genetic Algorithm to classify sport actions based on 3D motion data <span class="citation" data-cites="weiwei">(<a href="#ref-weiwei" role="doc-biblioref">Weiwei 2022</a>)</span>. PCA has been used in order to reduce dimensionality of the data, a hybrid classification scheme combining PCA and RF is proposed. The report presents an innovative approach to the classification of sporting actions which relies on 3D motion data derived from advanced techniques, such as PCA, RF and GA, with a view to achieving superior accuracy.</p>
+<p>Finally, PCA is a key Statistical Method for Sports Science which may contribute to reducing the dimensionality of complex data sets and highlighting critical variables. It will have a profound impact on the enhancement of performance, tailored training programs, analysis of individual performances and identification of talent. Innovation approaches to the use of PCAs in sports science were demonstrated by <span class="citation" data-cites="pino">(<a href="#ref-pino" role="doc-biblioref">Pino-Ortega 2021</a>)</span> and <span class="citation" data-cites="weiwei">(<a href="#ref-weiwei" role="doc-biblioref">Weiwei 2022</a>)</span>.</p>
+<section id="literature-review" class="level3">
+<h3 class="anchored" data-anchor-id="literature-review">Literature Review</h3>
+<p>[1] Researchers explain principal component analysis in detail and use examples to explain it. When performing principal component analysis, it creates linear combinations of variables. The number of principal components can be less than or equal to the original number of variables. The number of principal components can be increased or decreased based on the accuracy of the model. In this article we see that 44 red wine samples were collected all originating from the same grape variety, Cabernet Sauvignon. These samples are collected from various regions. This study uses Foss Wine scan instrument to conduct measurements on 14 characteristics parameters of these wines like ethanol content, pH content etc. This showcases how Principal Component Analysis can be an important tool for extracting meaningful patterns with insights <span class="citation" data-cites="bro">(<a href="#ref-bro" role="doc-biblioref">Age K Smilde 2014</a>)</span>.</p>
+<p>[2] Researchers applies principal component analysis and linear regression to study quality of drinking water to find pollution sources. Five principal components were used, and 83.1% of the variance is explained by these five components. It was found that the primary forms of pollution was waste from cities <span class="citation" data-cites="mustapha">(<a href="#ref-mustapha" role="doc-biblioref">Mustapha 2012</a>)</span>.</p>
+<p>[3] Researchers believe that the Covid-19 pandemic may influence investors’ decisions to invest more or less money in the stock market. In this study, stock market data was analyzed along with the psychology of the investors. The negative emotions experienced by investors made them more likely to avoid investing in the stock market. Investors cared more about their health and well-being than their wealth <span class="citation" data-cites="naseem">(<a href="#ref-naseem" role="doc-biblioref">Naseem S. 2021</a>)</span>.</p>
+<p>[4] Principal component analysis is explained using an example of food choices in different countries. The data set used has 17 dimensions, but these dimensions are reduced to 2 principal components that account for 97% of the variation. This article shows an effective use of principal component analysis, by obtaining an accurate model that is much simpler than the original data set <span class="citation" data-cites="richardson">(<a href="#ref-richardson" role="doc-biblioref">Richardson 2009</a>)</span>.</p>
+<p>[5] Principal component analysis was used to analyze dietary habits of Polish esports players. Subjects were given a questionnaire about their dietary habits. The questionnaire consisted of 145 different food items, that were reduced to 37 groups of food. The subjects were also asked about the frequency at which they consume these food items. Other dietary habits were analyzed, such as meal frequency and hydration <span class="citation" data-cites="szot">(<a href="#ref-szot" role="doc-biblioref">Szot 2022</a>)</span>.</p>
+<p>[6] Researchers have identified Bangladesh as an area that will be significantly vulnerable to climate change. This study was done to reduce the identified vulnerabilities into categories of vulnerability. Principle component analysis was used to reduce a list of 31 indicators to 7, which were Demographic Vulnerability, Economic Vulnerability, Agricultural Vulnerability, Water Vulnerability, Health Vulnerability, Climate Vulnerability, and Infrastructural Vulnerability <span class="citation" data-cites="uddin">(<a href="#ref-uddin" role="doc-biblioref">al. 2019</a>)</span>.</p>
+<p>[7] In this article we see that the author have taken an approach to combine Detrending Moving-Average Cross Validation Analysis(DMCA) and Principal Component Analysis (PCA) comparing its performance to traditional PCA methods to determine the primary components of air pollutants <span class="citation" data-cites="dong">(<a href="#ref-dong" role="doc-biblioref">X Dong 2023</a>)</span>.</p>
+<p>The Application of DMCA based PCA shows a promising advancement in addressing non – stationary signals in air pollutant data. This method enhanced reliability, resistance and the ability to identify key pollutant makes it a valuable tool in real life. We see that the components vary seasonally, with winter and autumn having stable pattern.</p>
+<p>[8] PCA has been used in various sports, including dance, diving, gymanastics, skiing, and etc to analyze the technique of a player. In sports technique is often a critical factor for success and a defining characteristic of top athletes. It refers to specific coordinated patterns that athletes develop through practice. PCA is an important factor in sports because it is essential to know the moments, strengths and weaknesses of our own performance to improve in future. Identifying potential beneficial changes in an athlete’s technique is a major challenge <span class="citation" data-cites="gloersen">(<a href="#ref-gloersen" role="doc-biblioref">Ø Gløersen 2017</a>)</span>.</p>
+<p>In this study Six elite cross-country skiers we involved, all of them were male. Among six skiers, three were members of Norwegian National Team and had achieved podium finishes in world cup. The other three skiers were also high-level athletes. The study utilized a performance measure known as “FIS Points”, which stands for Federation International Ski points. FIS are calculated by players time difference from winner’s finishing time. Lower FIS points indicate better performance. Limitation: - Must do individual analysis on each player. Even if we do a analysis on a whole team, it would only be most effective if we do a individual analysis and combine it together.</p>
+<p>[9] In this article we see the importance of assessing performance using notational analysis to identify critical patterns and events that can impact the outcomes of a team.</p>
+<p>Notational analysis in sports has become a critical tool for identifying key patterns and events that can lead to a successful outcome. Various statistical techniques are used to analyze the data and PCA is one of the most important technique to visualize tactical and technical responses. PCA is valuable for objectively selecting critical variables, especially when variablesare chosen based on professional experience or evidence-based information <span class="citation" data-cites="rojas">(<a href="#ref-rojas" role="doc-biblioref">D Rojas-Valverde and Rico-González 2020</a>)</span>.</p>
+<p>This paper shows us the significance of notational analysis and statistical technique like PCA in sports sciences to analyze performance. It also highlights the challenges posed by the increasing volume of the data and the need for ojjective methods for variable selection and interpretation and the need of consistent reporting of PCA and results in sports research. It gives special importance to guidelines for conducting PCA and suitability testing to ensure high-quality and interpretable outcomes in sports analysis.</p>
+<p>[10] This article explores the social effects of intelligent sports systems using PCA and fuzzy control technology. It investigates how these systems respond to users, focusing on interface design and division of data matrices. The goal is to understand their societal implications <span class="citation" data-cites="chen">(<a href="#ref-chen" role="doc-biblioref">Chen 2021</a>)</span>.</p>
+<p>The authors conducted a user survey to gauge experiences, satisfaction, and perceived impacts of intelligent sports systems, analyzing the data with PCA. Key factors influencing social effects were identified:</p>
+<p>User Appraisal : How users gauge the systems helpfulness and its value to them.</p>
+<p>User Fulfillment : The degree of users’ contentment derived from the systems performance.</p>
+<p>Physical Activity Influence : Users conviction that the system has enhanced their physical activity positively.</p>
+<p>The prominence of perceived usefulness as the most pivotal factor emphasizes its paramount importance in engaging users. The article emphasizes the necessity of understanding the broader societal impact of these systems, given the ever-evolving technological landscape. It acknowledges potential research constraints, such as sample size and reliance on self-reported data, which warrant additional investigation.</p>
+<p>[11] In this article the primary objective is to classify sports actions using 3D motion data. The article proposes a combination approach that involves Principal Component Analysis, Random Forest and Genetic Algorithm. This article uses 3D motion data consisting of 114 dimensions indicators as input features for classification. A hybrid classification model combining PCA and RF is proposed. PCA is used to reduce the dimensionality of the data. PCA is noted for its advantage in dimensionality reduction without losing the essential features of the original data which contributes to improved overall sport action classification accuracy. This article shows an innovative approach to classify sports actions based on 3D motion data leveraging advanced techniques such as PCA,RF,GA to achieve high accuracy <span class="citation" data-cites="weiwei">(<a href="#ref-weiwei" role="doc-biblioref">Weiwei 2022</a>)</span>.</p>
+<p>[12] The paper under consideration conducts a systematic review focusing on the application of Principal Component Analysis (PCA) in sports science, with a specific emphasis on soccer, basketball, and rugby. The primary objective is to identify the most pertinent variables for tasks like training program development, performance analysis, and talent identification within these sports. The importance of this paper lies in the fact that PCA, a robust statistical technique, can effectively reduce complex data sets’ dimensionality and highlight key variables. In the realm of sports science, this has profound implications: Performance Enhancement: It assists in pinpointing the pivotal factors contributing to athletes’ performance. Tailored Training Programs: Allows for the design of personalized training regimes, catering to individual athletes’ strengths and weaknesses. Performance Analysis: Facilitates in-depth analysis of performance data, offering insights into areas for improvement. Talent Identification: Helps in identifying and nurturing talented athletes, crucial for sports development. To achieve these objectives, the authors conducted a systematic review encompassing 34 relevant studies meeting their inclusion criteria. While these studies spanned various sports, soccer, basketball, and rugby featured predominantly. The methodology adhered to the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines. It encompassed a comprehensive search of electronic databases like PubMed, Scopus, and Web of Science. The authors also manually scoured the references of included studies to identify any additional pertinent articles <span class="citation" data-cites="pino">(<a href="#ref-pino" role="doc-biblioref">Pino-Ortega 2021</a>)</span>.</p>
+<p>PCA was employed as the data reduction technique to analyze the selected studies. This statistical method is instrumental in identifying patterns and correlations among variables, thus simplifying complex data sets. The results of the review established that the most vital variables for training program design, performance analysis, and talent identification in the respective sports were as follows:</p>
+<p>Soccer: Physical fitness, technical skills, and tactical abilities were key determinants. Basketball: Variables related to shooting, ball handling, and decision making assumed prominence. Rugby: Physical fitness, tackling abilities, and decision-making skills were identified as critical factors. The review underscored the necessity of assessing training and competition workloads for effective exercise prescription, task design, performance analysis, and talent identification. Limitations: Sport Specificity: The review predominantly focused on soccer, basketball, and rugby, potentially limiting the generalizability of findings to other sports. PCA Exclusivity: The review only considered studies that utilized PCA as the data reduction technique, potentially overlooking relevant research employing other methods. Reporting Bias: Studies that did not report methodological outcomes and results of exploratory factor analysis might have been omitted. This paper is a valuable resource for anyone interested in understanding critical variables for training program design, performance analysis, and talent identification in soccer, basketball, and rugby. It employs a systematic approach following PRISMA guidelines and utilizes PCA for robust data analysis. However, it’s crucial to recognize the limitations in terms of sport specificity, language bias, PCA exclusivity, and reporting bias.</p>
+<p>[13] The article titled “Multivariate Exploratory Comparative Analysis of LaLiga Teams” employs Principal Component Analysis (PCA) to evaluate the performance of LaLiga teams with the aim of identifying key performance indicators (KPIs) that distinguish successful teams from less successful ones. This study analyzed data from three seasons (2015/16, 2016/17, and 2017/18), encompassing 57 performance indicators categorized into goal scoring, offensive, and defensive metrics. The findings indicate that successful teams excel in successful passes, dynamic offensive transitions, and effective shots and crosses, while less successful teams tend to prioritize defensive actions, struggle with goal-scoring, and maintain longer ball possession times in the final third of the field. PCA’s application offers a robust, multivariate approach to comprehending performance differences among teams. The study underscores the importance of KPIs in sports analysis and management for predicting and enhancing performance. These insights can be applied across various sports, informing the development of performance analysis tools and methodologies. Ultimately, this research illuminates essential performance indicators in football and their broader relevance in understanding sports success. Insights: The study highlights the importance of KPIs in sports analysis and management. By identifying the most appropriate behavior patterns that can lead to success, KPIs can enable the increase and prediction of performance. The use of PCA in sports analysis can provide a comprehensive and multivariate approach to understanding team performance. By analyzing multiple performance indicators, PCA can identify the most important factors that differentiate successful teams from less successful ones. The study’s findings on the importance of successful passes, dynamic offensive transitions, and effective shots and crosses can be used to inform training and strategy development in football. Coaches and managers can focus on improving these areas to increase their team’s chances of success. add these insights to the above one <span class="citation" data-cites="stone">(<a href="#ref-stone" role="doc-biblioref">Stone 2022</a>)</span>.</p>
+<p>[14] This research article delves into the complexities of monitoring athlete performance in team sports, specifically focusing on the challenges faced in NCAA Division-I Men’s Basketball competitions. The central issue addressed is the often intricate and poorly understood metrics generated by emerging technologies in this context. To simplify these datasets and derive meaningful insights, the authors advocate for the application of Principal Component Analysis (PCA), a robust statistical method. The article meticulously details the methodology employed and shares the outcomes of the PCA analysis, which was conducted on external load data collected during DI basketball competitions. The primary objective was to streamline this data, enhancing its interpretability. Additionally, the study investigated whether the PCA results exhibited sensitivity to the diverse load demands placed on different positional groups (POS) within the sport. In a descriptive format, the article unveils the PCA findings, spotlighting variations in external load requirements across various positional groups. It also outlines the development of daily individual player preparedness reports, highlighting their distribution to coaching staff through collaboration with performance and sports medicine personnel. This research article offers valuable insights for coaches and athletes in NCAA Division-I Men’s Basketball and analogous high-performance domains. Nevertheless, it underscores the imperative for ongoing scientific inquiries to unravel the intricacies of metrics reported by evolving technologies, thus continually enhancing our understanding of athlete performance in team sports. The research article provides valuable insights into the challenges of monitoring athlete performance in team sports and the potential applications of PCA in simplifying datasets. The article highlights the importance of generating daily individual player preparedness reports and their dissemination to the coaching staff via the performance and sports medicine personnel. The findings of this research article can be useful for coaches and athletes in NCAA Division-I Men’s Basketball and other high-performance environments. The article also emphasizes the need for further scientific investigations to understand the metrics reported by new technologies <span class="citation" data-cites="casal">(<a href="#ref-casal" role="doc-biblioref">C Casal 2021</a>)</span>.</p>
+<p>[15] The paper proposes a new method for dimensionality reduction for neural network-based PCA. The proposed method is called adaptive dimensionality reduction (ADR). ADR is a two-step process. In the first step, ADR uses a neural network to learn the principal components of the data. In the second step, ADR uses a stopping rule to determine the number of principal components to keep. The stopping rule in ADR is based on the idea that if the principal components are not changing significantly, then ADR stops learning new principal components. The authors evaluated ADR on a variety of data sets and found that it was able to achieve better performance than traditional PCA methods <span class="citation" data-cites="migenda">(<a href="#ref-migenda" role="doc-biblioref">N Migenda 2021</a>)</span>.</p>
+<p>[16] Principal Component Analysis (PCA) is a statistical method employed to reduce the complexity of data while retaining critical information. The core concept behind PCA is to identify linear combinations of the original variables that capture as much of the data’s variability as possible. These combinations, known as principal components, are arranged in such a way that the first one explains the highest variance within the data. Subsequent components are ordered to maximize variance while remaining orthogonal (uncorrelated) to the preceding ones. PCA has found wide-ranging applications, including data visualization, clustering, and classification. Recent advancements in PCA encompass its application to large-scale datasets (big data), integration with other machine learning techniques, and the development of more robust PCA approaches capable of handling outliers with greater resilience <span class="citation" data-cites="jolliffe">(<a href="#ref-jolliffe" role="doc-biblioref">J Cadima 2016</a>)</span>.</p>
+<p>[17] This method hinges on the concept of segregating the illumination and reflection components within the image, effectively addressing the challenges posed by low-light conditions. The authors conducted thorough evaluations of this approach across a diverse range of low-light images, and their findings indicate a noteworthy enhancement in image quality, demonstrating the method’s effectiveness <span class="citation" data-cites="singh">(<a href="#ref-singh" role="doc-biblioref">A Bhandari 2021</a>)</span>.</p>
 </section>
-<section id="literature-review" class="level2">
-<h2 class="anchored" data-anchor-id="literature-review">Literature Review</h2>
-<p>The literature assessment on its usage in sports science in rugby, basketball, and soccer, the review highlighted the most important elements for designing training programs, analyzing performance, and identifying talent. The social effects of intelligent sports systems were the subject of another research assessment. The study employed PCA and fuzzy control technologies as analytical techniques to pinpoint the main causes of these systems’ social consequences. PCA was used to evaluate the survey data that the authors collected through a user survey of intelligent sports systems. Their research showed that perceptions of these social consequences are the most important contributing elements.</p>
-<p>The use of PCA was recommended in a literature study on tracking athlete performance in team sports, with an emphasis on NCAA Division-I Men’s Basketball contests, in order to simplify large datasets and produce insightful results. The evaluation emphasized the need of producing daily reports on individual player readiness and distributing them to the coaching staff via the performance and sports medical staff.</p>
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<p>[text]</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>nba <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/theji/Documents/nba.xlsx&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>nba</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 217 × 28
+   `FULL NAME`              TEAM  POS     AGE    GP   MPG MIN%Minutes Percenta…¹
+   &lt;chr&gt;                    &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;                  &lt;dbl&gt;
+ 1 Precious Achiuwa         Tor   F      22.7     6  27.8                   57.8
+ 2 Steven Adams             Mem   C      28.9     7  16.2                   33.8
+ 3 Bam Adebayo              Mia   C-F    24.9    18  34.1                   71  
+ 4 Nickeil Alexander-Walker Uta   G      23.8     1   4.7                    9.8
+ 5 Grayson Allen            Mil   G      26.7    12  25.4                   53  
+ 6 Jose Alvarado            Nor   G      24.2     6  19.5                   40.6
+ 7 Kyle Anderson            Mem   F-G    28.7    12  18.4                   38.3
+ 8 Giannis Antetokounmpo    Mil   F      27.5    12  37.3                   77.7
+ 9 Thanasis Antetokounmpo   Mil   F      29.9     8   2.6                    5.3
+10 OG Anunoby               Tor   F      24.9     6  36.1                   75.2
+# ℹ 207 more rows
+# ℹ abbreviated name:
+#   ¹​`MIN%Minutes PercentagePercentage of team minutes used by a player while he was on the floor`
+# ℹ 21 more variables:
+#   `USG%Usage RateUsage rate, a.k.a., usage percentage is an estimate of the percentage of team plays used by a player while he was on the floor` &lt;dbl&gt;,
+#   `TO%Turnover RateA metric that estimates the number of turnovers a player commits per 100 possessions` &lt;dbl&gt;,
+#   FTA &lt;dbl&gt;, `FT%` &lt;dbl&gt;, `2PA` &lt;dbl&gt;, `2P%` &lt;dbl&gt;, `3PA` &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
 </section>
 <section id="analysis-and-results" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-and-results">Analysis and Results</h2>
+<p>[text]</p>
 <section id="data-and-vizualisation" class="level3">
 <h3 class="anchored" data-anchor-id="data-and-vizualisation">Data and Vizualisation</h3>
 <p>[text]</p>
@@ -3044,37 +3153,68 @@ vertical-align: -.125em;
 <section id="statistical-modeling" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-modeling">Statistical Modeling</h3>
 </section>
-<section id="conlusion" class="level3">
-<h3 class="anchored" data-anchor-id="conlusion">Conlusion</h3>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
 </section>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<ol type="1">
-<li>Bro, R. &amp; Smilde, A. (2014). Principal component analysis. Royal Society of Chemistry, 6, 2812-2831. https://doi.org/10.1039/C3AY41907J</li>
-<li>Mustapha, A. &amp; Abdu, A. (2012). Application of Principal Component Analysis &amp; Multiple Regression Models in Surface Water Quality Assessment. Journal of Environment and Earth Science, 2(2). https://www.researchgate.net/publication/235752454_Application_of_Principal_Component_Analysis_MultipleRegression_Models_in_Surface_Water_Quality_Assessment</li>
-<li>Naseem S., Mohsin M., Hui W., Liyan G., &amp; Penglai K. (2021). The Investor Psychology and Stock Market Behavior During the Initial Era of COVID-19: A Study of China, Japan, and the United States. Frontiers, 12. https://doi.org/10.3389/fpsyg.2021.626934</li>
-<li>Richardson, M. (2009). Principal Component Analysis. http://aurora.troja.mff.cuni.cz/nemec/idl/09bonus/pca.pdf</li>
-<li>Szot, M., Frączek, B., &amp; Tyrała, F. (2022). Nutrition Patterns of Polish Esports Players. MDPI Open Access Journals, 15(1), 149. https://doi.org/10.3390/nu15010149</li>
-<li>Uddin, N. et al. (2019). Mapping of climate vulnerability of the coastal region of Bangladesh using principal component analysis. ScienceDirect, 102, 47-57. https://doi.org/10.1016/j.apgeog.2018.12.011</li>
-<li>Xiaofeng Dong, Qingju Fan. (2023, May 31). Department of Statistics, School of Science, Wuhan University of Technology, Wuhan 430070, PR China. https://www.sciencedirect.com/science/article/abs/pii/S0960077923004599</li>
-<li>Rasmus Bro a and Age K. Smilde. (2013, October 28). Department of Food Science, University of Copenhagen, Rolighedsvej 30, DK-1958, Frederiksberg C, Denmark. https://pubs.rsc.org/en/content/articlehtml/2014/ay/c3ay41907j</li>
-<li>Øyvind Gløersen, Håvard Myklebust, Jostein Hallén &amp; Peter Federolf. (2017, March 13). https://www.tandfonline.com/doi/full/10.1080/02640414.2017.1298826</li>
-<li>Daniel Rojas-Valverde, José Pino-Ortega, Carlos D. Gómez-Carmona, and Markel Rico-González. (2020, November 24). https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7727687/#:~:text=PCA%20is%20defined%20as%20a,to%20identify%20key%20performance%20indicators</li>
-<li>Xiaobo Chen. (2021). Social Effect Analysis of Intelligent Sports Based on Principal Component Analysis and Fuzzy Control. Journal of Sensors, 2021. https://doi.org/10.1155/2021/5555555</li>
-<li>Hao Weiwei. (2021). https://www.sciencedirect.com/science/article/abs/pii/S0141938221001359</li>
-<li>Pino-Ortega, J.; Rojas-Valverde, D.; Gómez-Carmona, C.D.; Rico-González, M. Training Design, Performance Analysis, and Talent Identification—A Systematic Review about the Most Relevant Variables through the Principal Component Analysis in Soccer, Basketball, and Rugby. Int. J. Environ. Res. Public Health 2021, 18, 2642. https://doi.org/10.3390/ijerph18052642</li>
-<li>Chen, X. (2021). Social Effect Analysis of Intelligent Sports Based on Principal Component Analysis and Fuzzy Control. Journal of Sensors, 2021. https://doi.org/10.1155/2021/5555555</li>
-<li>Stone, J.D., Merrigan, J.J., Ramadan, J., Brown, R.S., Cheng, G.T., Hornsby, W.G., Smith, H., Galster, S.M., &amp; Hagen, J.A. (2022). Simplifying External Load Data in NCAA Division-I Men’s Basketball Competitions: A Principal Component Analysis. Frontiers in Sports and Active Living, 4, 795897. https://doi.org/10.3389/fspor.2022.795897</li>
-<li>Casal, C.A., Losada, J.L., Barreira, D., &amp; Maneiro, R. (2021). Multivariate Exploratory Comparative Analysis of LaLiga Teams: Principal Component Analysis. International Journal of Environmental Research and Public Health, 18, 3176. https://doi.org/10.3390/ijerph18063176</li>
-<li>Migenda, N., Möller, R., &amp; Schenck, W. (2021). Adaptive dimensionality reduction for neural network-based online principal component analysis. PLOS ONE, 16(3), e0248896. https://doi.org/10.1371/journal.pone.0248896<br>
-</li>
-<li>Jolliffe IT, Cadima J. 2016Principal component analysis: a review and recent developments.Phil.Trans.R.Soc.A374:20150202.http://dx.doi.org/10.1098/rsta.2015.0202</li>
-<li>N. Singh and A. K. Bhandari, “Principal Component Analysis-Based Low-Light Image Enhancement Using Reflection Model,” in IEEE Transactions on Instrumentation and Measurement, vol. 70, pp. 1-10, 2021, Art no. 5012710, doi: 10.1109/TIM.2021.3096266.</li>
-</ol>
+<section id="references" class="level2 unnumbered">
+
+
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-singh" class="csl-entry" role="listitem">
+A Bhandari, N Singh &amp;. 2021. <span>“Principal Component Analysis-Based Low-Light Image Enhancement Using Reflection Model.”</span> <em>IEEE Transactions on Instrumentation and Measurement</em> 70. <a href="https://doi.org/10.1109/TIM.2021.3096266">https://doi.org/10.1109/TIM.2021.3096266</a>.
+</div>
+<div id="ref-bro" class="csl-entry" role="listitem">
+Age K Smilde, Rasmus Bro &amp;. 2014. <span>“Principal Component Analysis.”</span> <em>Analytical Methods</em> 6 (9): 2812–31. <a href="https://doi.org/10.1039/C3AY41907J">https://doi.org/10.1039/C3AY41907J</a>.
+</div>
+<div id="ref-uddin" class="csl-entry" role="listitem">
+al., N Uddin et. 2019. <span>“Mapping of Climate Vulnerability of the Coastal Region of Bangladesh Using Principal Component Analysis.”</span> <em>Applied Geography</em> 102: 47–57. <a href="https://doi.org/10.1016/j.apgeog.2018.12.011 ">https://doi.org/10.1016/j.apgeog.2018.12.011 </a>.
+</div>
+<div id="ref-casal" class="csl-entry" role="listitem">
+C Casal, D Barreira, J Losada. 2021. <span>“Multivariate Exploratory Comparative Analysis of LaLiga Teams: Principal Component Analysis.”</span> <em>International Journal of Environmental Research and Public Health</em> 18 (6). <a href="https://doi.org/10.3390/ijerph18063176">https://doi.org/10.3390/ijerph18063176</a>.
+</div>
+<div id="ref-chen" class="csl-entry" role="listitem">
+Chen, X. 2021. <span>“Social Effect Analysis of Intelligent Sports Based on Principal Component Analysis and Fuzzy Control.”</span> <em>Journal of Sensors</em> 2021: 11. <a href="https://doi.org/10.1155/2021/4475448">https://doi.org/10.1155/2021/4475448</a>.
+</div>
+<div id="ref-rojas" class="csl-entry" role="listitem">
+D Rojas-Valverde, C Gómez-Carmona, J Pino-Ortega, and M Rico-González. 2020. <span>“A Systematic Review of Methods and Criteria Standard Proposal for the Use of Principal Component Analysis in Team’s Sports Science.”</span> <em>International Journal of Environmental Research and Public Health</em> 17 (23): 8712. <a href="https://doi.org/10.3390%2Fijerph17238712">https://doi.org/10.3390%2Fijerph17238712</a>.
+</div>
+<div id="ref-jolliffe" class="csl-entry" role="listitem">
+J Cadima, I Jolliffe &amp;. 2016. <span>“Principal Component Analysis: A Review and Recent Developments.”</span> <em>Phil. Trans. R. Soc. A</em> 374 (2065). <a href="http://dx.doi.org/10.1098/rsta.2015.0202">http://dx.doi.org/10.1098/rsta.2015.0202</a>.
+</div>
+<div id="ref-mustapha" class="csl-entry" role="listitem">
+Mustapha, A, A. &amp; Abdu. 2012. <span>“Application of Principal Component Analysis &amp; Multiple Regression Models in Surface Water Quality Assessment.”</span> <em>Journal of Environment and Earth Science</em> 2 (2). <a href="https://www.researchgate.net/publication/235752454_Application_of_Principal_Component_Analysis_MultipleRegression_Models_in_Surface_Water_Quality_Assessment">https://www.researchgate.net/publication/235752454_Application_of_Principal_Component_Analysis_MultipleRegression_Models_in_Surface_Water_Quality_Assessment</a>.
+</div>
+<div id="ref-migenda" class="csl-entry" role="listitem">
+N Migenda, &amp; W Schenck, R Moller. 2021. <span>“Adaptive Dimensionality Reduction for Neural Network-Based Online Principal Component Analysis”</span> 16 (3). <a href="https://doi.org/10.1371/journal.pone.0248896">https://doi.org/10.1371/journal.pone.0248896</a>.
+</div>
+<div id="ref-naseem" class="csl-entry" role="listitem">
+Naseem S., Hui W., Mohsin M. 2021. <span>“The Investor Psychology and Stock Market Behavior During the Initial Era of COVID-19: A Study of China, Japan, and the United States.”</span> <em>Frontiers in Psychology</em> 12. <a href="https://doi.org/10.3389/fpsyg.2021.626934">https://doi.org/10.3389/fpsyg.2021.626934</a>.
+</div>
+<div id="ref-gloersen" class="csl-entry" role="listitem">
+Ø Gløersen, J Hallén &amp; P Federolf, H Myklebust. 2017. <span>“Technique Analysis in Elite Athletes Using Principal Component Analysis.”</span> <em>Journal of Sports Sciences</em> 38 (2): 2018. <a href="https://doi.org/10.1080/02640414.2017.1298826">https://doi.org/10.1080/02640414.2017.1298826</a>.
+</div>
+<div id="ref-pino" class="csl-entry" role="listitem">
+Pino-Ortega, D.; Gómez-Carmona, J.; Rojas-Valverde. 2021. <span>“Training Design, Performance Analysis, and Talent Identification—a Systematic Review about the Most Relevant Variables Through the Principal Component Analysis in Soccer, Basketball, and Rugby.”</span> <em>International Journal of Environmental Research and Public Health</em> 8 (5). <a href="https://doi.org/10.3390/ijerph18052642">https://doi.org/10.3390/ijerph18052642</a>.
+</div>
+<div id="ref-richardson" class="csl-entry" role="listitem">
+Richardson, M. 2009. <span>“Principal Component Analysis.”</span> <a href="http://aurora.troja.mff.cuni.cz/nemec/idl/09bonus/pca.pdf">http://aurora.troja.mff.cuni.cz/nemec/idl/09bonus/pca.pdf</a>.
+</div>
+<div id="ref-stone" class="csl-entry" role="listitem">
+Stone, J. et al. 2022. <span>“Simplifying External Load Data in NCAA Division-i Men’s Basketball Competitions: A Principal Component Analysis.”</span> <em>Frontiers in Sports and Active Living</em> 4. <a href="https://doi.org/10.3389/fspor.2022.795897">https://doi.org/10.3389/fspor.2022.795897</a>.
+</div>
+<div id="ref-szot" class="csl-entry" role="listitem">
+Szot, Frączek, M. 2022. <span>“Nutrition Patterns of Polish Esports Players.”</span> <em>Nutrients</em> 15 (1): 149. <a href="https://doi.org/10.3390/nu15010149">https://doi.org/10.3390/nu15010149</a>.
+</div>
+<div id="ref-weiwei" class="csl-entry" role="listitem">
+Weiwei, H. 2022. <span>“Classification of Sport Actions Using Principal Component Analysis and Random Forest Based on Three-Dimensional Data.”</span> <em>Displays</em> 72: 102135. <a href="https://doi.org/10.1016/j.displa.2021.102135">https://doi.org/10.1016/j.displa.2021.102135</a>.
+</div>
+<div id="ref-dong" class="csl-entry" role="listitem">
+X Dong, &amp; D Li, Q Fan. 2023. <span>“Detrending Moving-Average Cross-Correlation Based Principal Component Analysis of Air Pollutant Time Series.”</span> <em>Chaos, Solitons &amp; Fractals</em> 172: 113558. <a href="https://doi.org/10.1016/j.chaos.2023.113558">https://doi.org/10.1016/j.chaos.2023.113558</a>.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
