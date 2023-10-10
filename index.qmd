@@ -17,7 +17,7 @@ editor:
     wrap: 72
 ---
 
-## Introduction
+# Introduction
 
 Principal Component Analysis (PCA) is a statistical technique that can be used to reduce the dimensionality of complex data sets and highlight key variables. PCA was used for analysis of player techniques in different sports, such as football, basketball, rugby, dance, diving, gymnastics, skiing and more to figure out what those variables are that could have an important influence on the development of training programs, performance analysis or identification of talents within these sports [@bro].
 
@@ -29,60 +29,22 @@ A combination approach involving PCA, Random Forest and Genetic Algorithm to cla
 
 Finally, PCA is a key Statistical Method for Sports Science which may contribute to reducing the dimensionality of complex data sets and highlighting critical variables. It will have a profound impact on the enhancement of performance, tailored training programs, analysis of individual performances and identification of talent. Innovation approaches to the use of PCAs in sports science were demonstrated by [@pino] and [@weiwei].
 
-### Literature Review
+## Literature Review
 
 
 
-[1] Researchers explain principal component analysis in detail and use examples to explain it. When performing principal component analysis, it creates linear combinations of variables. The number of principal components can be less than or equal to the original number of variables. The number of principal components can be increased or decreased based on the accuracy of the model.
-In this article we see that 44 red wine samples were collected all originating from the same grape variety, Cabernet Sauvignon. These samples are collected from various regions.
-This study uses Foss Wine scan instrument to conduct measurements on 14 characteristics parameters of these wines like ethanol content, pH content etc. This showcases how Principal Component Analysis can be an important tool for extracting meaningful patterns with insights [@bro].
+Researchers explain principal component analysis in detail and use examples to explain it. When performing principal component analysis, it creates linear combinations of variables. In this article we see that 44 red wine samples were collected all originating from the same grape variety, Cabernet Sauvignon. These samples are collected from various regions.This study uses Foss Wine scan instrument to conduct measurements on 14 characteristics parameters of these wines like ethanol content, pH content etc. This showcases how Principal Component Analysis can be an important tool for extracting meaningful patterns with insights [@bro]. Researchers applies principal component analysis and linear regression to study quality of drinking water to find pollution sources. Five principal components were used, and 83.1% of the variance is explained by these five components. It was found that the primary forms of pollution was waste from cities [@mustapha].
 
+Researchers believe that the Covid-19 pandemic may influence investors' decisions to invest more or less money in the stock market. In this study, stock market data was analyzed along with the psychology of the investors. The negative emotions experienced by investors made them more likely to avoid investing in the stock market. Investors cared more about their health and well-being than their wealth [@naseem]. Principal component analysis is explained using an example of food choices in different countries. The data set used has 17 dimensions, but these dimensions are reduced to 2 principal components that account for 97% of the variation. This article shows an effective use of principal component analysis, by obtaining an accurate model that is much simpler than the original data set [@richardson]. Principal component analysis was used to analyze dietary habits of Polish esports players. Subjects were given a questionnaire about their dietary habits. The questionnaire consisted of 145 different food items, that were reduced to 37 groups of food. The subjects were also asked about the frequency at which they consume these food items. Other dietary habits were analyzed, such as meal frequency and hydration [@szot].
 
-
-[2] Researchers applies principal component analysis and linear regression to study quality of drinking water to find pollution sources. Five principal components were used, and 83.1% of the variance is explained by these five components. It was found that the primary forms of pollution was waste from cities [@mustapha].
-
-
-[3] Researchers believe that the Covid-19 pandemic may influence investors' decisions to invest more or less money in the stock market. In this study, stock market data was analyzed along with the psychology of the investors. The negative emotions experienced by investors made them more likely to avoid investing in the stock market. Investors cared more about their health and well-being than their wealth [@naseem].
-
-
-[4] Principal component analysis is explained using an example of food choices in different countries. The data set used has 17 dimensions, but these dimensions are reduced to 2 principal components that account for 97% of the variation. This article shows an effective use of principal component analysis, by obtaining an accurate model that is much simpler than the original data set [@richardson].
-
-
-[5] Principal component analysis was used to analyze dietary habits of Polish esports players. Subjects were given a questionnaire about their dietary habits. The questionnaire consisted of 145 different food items, that were reduced to 37 groups of food. The subjects were also asked about the frequency at which they consume these food items. Other dietary habits were analyzed, such as meal frequency and hydration [@szot].
-
-
-[6] Researchers have identified Bangladesh as an area that will be significantly vulnerable to climate change. This study was done to reduce the identified vulnerabilities into categories of vulnerability. Principle component analysis was used to reduce a list of 31 indicators to 7, which were Demographic Vulnerability, Economic Vulnerability, Agricultural Vulnerability, Water Vulnerability, Health Vulnerability, Climate Vulnerability, and Infrastructural Vulnerability [@uddin].
-
-[7] In this article we see that the author have taken an approach to combine Detrending Moving-Average Cross Validation Analysis(DMCA) and Principal Component Analysis (PCA) comparing its performance to traditional PCA methods to  determine the primary components of air pollutants [@dong].
-
-The Application of DMCA based PCA shows a promising advancement in addressing non – stationary signals in air pollutant data. This method enhanced reliability, resistance and the ability to identify key pollutant makes it a  valuable tool in real life.
+Researchers have identified Bangladesh as an area that will be significantly vulnerable to climate change. This study was done to reduce the identified vulnerabilities into categories of vulnerability. Principle component analysis was used to reduce a list of 31 indicators to 7, which were Demographic Vulnerability, Economic Vulnerability, Agricultural Vulnerability, Water Vulnerability, Health Vulnerability, Climate Vulnerability, and Infrastructural Vulnerability [@uddin]. In this article we see that the author have taken an approach to combine Detrending Moving-Average Cross Validation Analysis(DMCA) and Principal Component Analysis (PCA) comparing its performance to traditional PCA methods to  determine the primary components of air pollutants [@dong]. The Application of DMCA based PCA shows a promising advancement in addressing non – stationary signals in air pollutant data. This method enhanced reliability, resistance and the ability to identify key pollutant makes it a  valuable tool in real life.
 We see that the components vary seasonally, with winter and autumn having stable pattern.
 
-[8] PCA  has been used in various sports, including dance, diving, gymanastics, skiing, and etc to analyze the technique of a player. In sports technique is often a critical factor for success and a defining characteristic of top athletes. It refers to specific coordinated patterns that athletes develop through practice.
-PCA is an important factor in sports because it is essential to know the moments, strengths and weaknesses of our own performance to improve in future. Identifying potential beneficial changes in an athlete’s technique is a major challenge [@gloersen].
-
-In this study Six elite cross-country skiers we involved, all of them were male. Among six skiers, three were members of Norwegian National Team and had achieved podium finishes in world cup. The other three skiers were also high-level athletes.
-The study utilized a performance measure known as “FIS Points”, which stands for Federation International Ski points. FIS are calculated by players time difference from winner’s finishing time. Lower FIS points indicate better performance.
-Limitation: - Must do individual analysis on each player. Even if we do a analysis on a whole team, it would only be most effective if we do a individual analysis and combine it together.
-
-[9] In this article we see the importance of assessing performance using notational analysis to identify critical patterns and events that can impact the outcomes of a team.
-
-Notational analysis in sports has become a critical tool for identifying key patterns and events that can lead to a successful outcome. Various statistical techniques are used to analyze the data and PCA is one of the most important technique to visualize tactical and technical responses.
+PCA  has been used in various sports, including dance, diving, gymanastics, skiing, and etc to analyze the technique of a player. In sports technique is often a critical factor for success and a defining characteristic of top athletes. It refers to specific coordinated patterns that athletes develop through practice.
+PCA is an important factor in sports because it is essential to know the moments, strengths and weaknesses of our own performance to improve in future. Identifying potential beneficial changes in an athlete’s technique is a major challenge [@gloersen]. In this article we see the importance of assessing performance using notational analysis to identify critical patterns and events that can impact the outcomes of a team. Notational analysis in sports has become a critical tool for identifying key patterns and events that can lead to a successful outcome. Various statistical techniques are used to analyze the data and PCA is one of the most important technique to visualize tactical and technical responses.
 PCA is valuable for objectively selecting critical variables, especially when variablesare chosen based on professional experience or evidence-based information [@rojas]. 
 
-This paper shows us the significance of notational analysis and statistical technique like PCA in sports sciences to analyze performance. It also highlights the challenges posed by the increasing volume of the data and the need for ojjective methods for variable selection and interpretation and the need of consistent reporting of PCA and results in sports research. It gives special importance to guidelines for conducting PCA and suitability testing to ensure high-quality and interpretable outcomes in sports analysis.
- 
-[10] This article explores the social effects of intelligent sports systems using PCA and fuzzy control technology. It investigates how these systems respond to users, focusing on interface design and division of data matrices. The goal is to understand their societal implications [@chen].
-
-The authors conducted a user survey to gauge experiences, satisfaction, and perceived impacts of intelligent sports systems, analyzing the data with PCA. Key factors influencing social effects were identified:
-
-User Appraisal :  How users gauge the systems helpfulness and its value to them.
-
-User Fulfillment :  The degree of users' contentment derived from the systems performance.
-
-Physical Activity Influence :  Users conviction that the system has enhanced their physical activity positively.
-
-The prominence of perceived usefulness as the most pivotal factor emphasizes its paramount importance in engaging users. The article emphasizes the necessity of understanding the broader societal impact of these systems, given the ever-evolving technological landscape. It acknowledges potential research constraints, such as sample size and reliance on self-reported data, which warrant additional investigation.
+This article explores the social effects of intelligent sports systems using PCA and fuzzy control technology. It investigates how these systems respond to users, focusing on interface design and division of data matrices. The goal is to understand their societal implications [@chen]. The prominence of perceived usefulness as the most pivotal factor emphasizes its paramount importance in engaging users. The article emphasizes the necessity of understanding the broader societal impact of these systems, given the ever-evolving technological landscape. It acknowledges potential research constraints, such as sample size and reliance on self-reported data, which warrant additional investigation.
 
 [11] In this article the primary objective is to classify sports actions using 3D motion data. The article proposes a combination approach that involves Principal Component Analysis, Random Forest and Genetic Algorithm.
 This article uses 3D motion data consisting of 114 dimensions indicators as input features for classification. A hybrid classification model combining PCA and RF is proposed. PCA is used to reduce the dimensionality of the data.
@@ -90,75 +52,120 @@ PCA is noted for its advantage in dimensionality reduction without losing the es
 This article shows an innovative approach to classify sports actions based on 3D motion data leveraging advanced techniques such as PCA,RF,GA to achieve high accuracy [@weiwei].
 
 
-[12] The paper under consideration conducts a systematic review focusing on the application of Principal Component Analysis (PCA) in sports science, with a specific emphasis on soccer, basketball, and rugby. The primary objective is to identify the most pertinent variables for tasks like training program development, performance analysis, and talent identification within these sports. The importance of this paper lies in the fact that PCA, a robust statistical technique, can effectively reduce complex data sets' dimensionality and highlight key variables. In the realm of sports science, this has profound implications:
-Performance Enhancement: It assists in pinpointing the pivotal factors contributing to athletes' performance.
-Tailored Training Programs: Allows for the design of personalized training regimes, catering to individual athletes' strengths and weaknesses.
-Performance Analysis: Facilitates in-depth analysis of performance data, offering insights into areas for improvement.
-Talent Identification: Helps in identifying and nurturing talented athletes, crucial for sports development.
-To achieve these objectives, the authors conducted a systematic review encompassing 34 relevant studies meeting their inclusion criteria. While these studies spanned various sports, soccer, basketball, and rugby featured predominantly.
-The methodology adhered to the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines. It encompassed a comprehensive search of electronic databases like PubMed, Scopus, and Web of Science. The authors also manually scoured the references of included studies to identify any additional pertinent articles [@pino].
+[12] The paper under consideration conducts a systematic review focusing on the application of Principal Component Analysis (PCA) in sports science, with a specific emphasis on soccer, basketball, and rugby. The primary objective is to identify the most pertinent variables for tasks like training program development, performance analysis, and talent identification within these sports. The importance of this paper lies in the fact that PCA, a robust statistical technique, can effectively reduce complex data sets' dimensionality and highlight key variables.The methodology adhered to the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines. It encompassed a comprehensive search of electronic databases like PubMed, Scopus, and Web of Science. The authors also manually scoured the references of included studies to identify any additional pertinent articles [@pino].
 
-PCA was employed as the data reduction technique to analyze the selected studies. This statistical method is instrumental in identifying patterns and correlations among variables, thus simplifying complex data sets.
-The results of the review established that the most vital variables for training program design, performance analysis, and talent identification in the respective sports were as follows:
- 
-Soccer: Physical fitness, technical skills, and tactical abilities were key determinants.
-Basketball: Variables related to shooting, ball handling, and decision making assumed prominence.
-Rugby: Physical fitness, tackling abilities, and decision-making skills were identified as critical factors.
-The review underscored the necessity of assessing training and competition workloads for effective exercise prescription, task design, performance analysis, and talent identification.
-Limitations:
-Sport Specificity: The review predominantly focused on soccer, basketball, and rugby, potentially limiting the generalizability of findings to other sports.
-PCA Exclusivity: The review only considered studies that utilized PCA as the data reduction technique, potentially overlooking relevant research employing other methods.
-Reporting Bias: Studies that did not report methodological outcomes and results of exploratory factor analysis might have been omitted.
-This paper is a valuable resource for anyone interested in understanding critical variables for training program design, performance analysis, and talent identification in soccer, basketball, and rugby. It employs a systematic approach following PRISMA guidelines and utilizes PCA for robust data analysis. However, it's crucial to recognize the limitations in terms of sport specificity, language bias, PCA exclusivity, and reporting bias.
- 
+The article titled "Multivariate Exploratory Comparative Analysis of LaLiga Teams" employs Principal Component Analysis (PCA) to evaluate the performance of LaLiga teams with the aim of identifying key performance indicators (KPIs) that distinguish successful teams from less successful ones. This study analyzed data from three seasons (2015/16, 2016/17, and 2017/18), encompassing 57 performance indicators categorized into goal scoring, offensive, and defensive metrics. The findings indicate that successful teams excel in successful passes, dynamic offensive transitions, and effective shots and crosses, while less successful teams tend to prioritize defensive actions, struggle with goal-scoring, and maintain longer ball possession times in the final third of the field. PCA's application offers a robust, multivariate approach to comprehending performance differences among teams. The study underscores the importance of KPIs in sports analysis and management for predicting and enhancing performance. These insights can be applied across various sports, informing the development of performance analysis tools and methodologies. Ultimately, this research illuminates essential performance indicators in football and their broader relevance in understanding sports success [@stone].
 
-[13] The article titled "Multivariate Exploratory Comparative Analysis of LaLiga Teams" employs Principal Component Analysis (PCA) to evaluate the performance of LaLiga teams with the aim of identifying key performance indicators (KPIs) that distinguish successful teams from less successful ones. This study analyzed data from three seasons (2015/16, 2016/17, and 2017/18), encompassing 57 performance indicators categorized into goal scoring, offensive, and defensive metrics. The findings indicate that successful teams excel in successful passes, dynamic offensive transitions, and effective shots and crosses, while less successful teams tend to prioritize defensive actions, struggle with goal-scoring, and maintain longer ball possession times in the final third of the field. PCA's application offers a robust, multivariate approach to comprehending performance differences among teams. The study underscores the importance of KPIs in sports analysis and management for predicting and enhancing performance. These insights can be applied across various sports, informing the development of performance analysis tools and methodologies. Ultimately, this research illuminates essential performance indicators in football and their broader relevance in understanding sports success.
-Insights: The study highlights the importance of KPIs in sports analysis and management. By identifying the most appropriate behavior patterns that can lead to success, KPIs can enable the increase and prediction of performance.
-The use of PCA in sports analysis can provide a comprehensive and multivariate approach to understanding team performance. By analyzing multiple performance indicators, PCA can identify the most important factors that differentiate successful teams from less successful ones.
-The study's findings on the importance of successful passes, dynamic offensive transitions, and effective shots and crosses can be used to inform training and strategy development in football. Coaches and managers can focus on improving these areas to increase their team's chances of success. add these insights to the above one [@stone].
+This research article delves into the complexities of monitoring athlete performance in team sports, specifically focusing on the challenges faced in NCAA Division-I Men’s Basketball competitions. The central issue addressed is the often intricate and poorly understood metrics generated by emerging technologies in this context. To simplify these datasets and derive meaningful insights, the authors advocate for the application of Principal Component Analysis (PCA), a robust statistical method. The article meticulously details the methodology employed and shares the outcomes of the PCA analysis, which was conducted on external load data collected during DI basketball competitions. The primary objective was to streamline this data, enhancing its interpretability. Additionally, the study investigated whether the PCA results exhibited sensitivity to the diverse load demands placed on different positional groups (POS) within the sport. In a descriptive format, the article unveils the PCA findings, spotlighting variations in external load requirements across various positional groups. It also outlines the development of daily individual player preparedness reports, highlighting their distribution to coaching staff through collaboration with performance and sports medicine personnel [@casal].
 
-
-[14] This research article delves into the complexities of monitoring athlete performance in team sports, specifically focusing on the challenges faced in NCAA Division-I Men’s Basketball competitions. The central issue addressed is the often intricate and poorly understood metrics generated by emerging technologies in this context. To simplify these datasets and derive meaningful insights, the authors advocate for the application of Principal Component Analysis (PCA), a robust statistical method. The article meticulously details the methodology employed and shares the outcomes of the PCA analysis, which was conducted on external load data collected during DI basketball competitions. The primary objective was to streamline this data, enhancing its interpretability. Additionally, the study investigated whether the PCA results exhibited sensitivity to the diverse load demands placed on different positional groups (POS) within the sport. In a descriptive format, the article unveils the PCA findings, spotlighting variations in external load requirements across various positional groups. It also outlines the development of daily individual player preparedness reports, highlighting their distribution to coaching staff through collaboration with performance and sports medicine personnel. This research article offers valuable insights for coaches and athletes in NCAA Division-I Men’s Basketball and analogous high-performance domains. Nevertheless, it underscores the imperative for ongoing scientific inquiries to unravel the intricacies of metrics reported by evolving technologies, thus continually enhancing our understanding of athlete performance in team sports.
-The research article provides valuable insights into the challenges of monitoring athlete performance in team sports and the potential applications of PCA in simplifying datasets. The article highlights the importance of generating daily individual player preparedness reports and their dissemination to the coaching staff via the performance and sports medicine personnel. The findings of this research article can be useful for coaches and athletes in NCAA Division-I Men’s Basketball and other high-performance environments. The article also emphasizes the need for further scientific investigations to understand the metrics reported by new technologies [@casal].
-
-
-[15] The paper proposes a new method for dimensionality reduction for neural network-based PCA.
+The paper proposes a new method for dimensionality reduction for neural network-based PCA.
 The proposed method is called adaptive dimensionality reduction (ADR).
-ADR is a two-step process. In the first step, ADR uses a neural network to learn the principal components of the data. In the second step, ADR uses a stopping rule to determine the number of principal components to keep.
-The stopping rule in ADR is based on the idea that if the principal components are not changing significantly, then ADR stops learning new principal components.
+ADR is a two-step process. In the first step, ADR uses a neural network to learn the principal components of the data. In the second step, ADR uses a stopping rule to determine the number of principal components to keep. The stopping rule in ADR is based on the idea that if the principal components are not changing significantly, then ADR stops learning new principal components.
 The authors evaluated ADR on a variety of data sets and found that it was able to achieve better performance than traditional PCA methods [@migenda].
 
-
-[16] Principal Component Analysis (PCA) is a statistical method employed to reduce the complexity of data while retaining critical information. The core concept behind PCA is to identify linear combinations of the original variables that capture as much of the data's variability as possible.
+Principal Component Analysis (PCA) is a statistical method employed to reduce the complexity of data while retaining critical information. The core concept behind PCA is to identify linear combinations of the original variables that capture as much of the data's variability as possible.
 These combinations, known as principal components, are arranged in such a way that the first one explains the highest variance within the data. Subsequent components are ordered to maximize variance while remaining orthogonal (uncorrelated) to the preceding ones.
-PCA has found wide-ranging applications, including data visualization, clustering, and classification. Recent advancements in PCA encompass its application to large-scale datasets (big data), integration with other machine learning techniques, and the development of more robust PCA approaches capable of handling outliers with greater resilience [@jolliffe].
-
-
-[17] This method hinges on the concept of segregating the illumination and reflection components within the image, effectively addressing the challenges posed by low-light conditions.
+PCA has found wide-ranging applications, including data visualization, clustering, and classification. Recent advancements in PCA encompass its application to large-scale datasets (big data), integration with other machine learning techniques, and the development of more robust PCA approaches capable of handling outliers with greater resilience [@jolliffe]. This method hinges on the concept of segregating the illumination and reflection components within the image, effectively addressing the challenges posed by low-light conditions.
 The authors conducted thorough evaluations of this approach across a diverse range of low-light images, and their findings indicate a noteworthy enhancement in image quality, demonstrating the method's effectiveness [@singh].
 
 
-## Methods
+# Methods
+
+[text]
+
+# Analysis and Results
+
+[text]
+
+## Data and Vizualisation
+
+```{r}
+library(readxl)
+library(knitr)
+library(kableExtra)
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+library(gtable)
+# Read the excel file into a data frame
+player.df <- read_excel("C:/Users/theji/Documents/nba.xlsx")
+# Check the structure of the data frame
+str(player.df)
+```
+
+We see the first three variables, `NAME`, `TEAM`, and `POS`, are strings, and the rest of the variables are numerical. Below is the description of the variables.
+
+
+| Variables | Description |
+|----|-------------|
+`NAME`   |  The full name of the basketball player
+`TEAM`    |            The team that the player is a part of
+`POS`      |              The player's position on the basketball court (e.g., point guard, shooting guard,           small forward, power forward, center)
+`AGE`       | The age of the player
+`GP`        | The number of games played by the player
+`MPG`      | The average number of minutes the player spends on the court per game
+`MINpct`  | The percentage of total team minutes used by the player while they were on the floor.
+`USGpct`  |              An estimate of the percentage of team plays used by the player while they were on the floor. It measures how involved the player is in the team's offense.
+`TOpct`  |                 The player's turnover rate, a metric that estimates the number of turnovers a player commits per 100 possessions.
+`FTA` |                    The number of free throws attempted by the player.
+`FTpct` |                   The percentage of free throws made by the player.
+`att2P` |                    The number of two-point shots attempted by the player.
+`pct2P` |                   The percentage of two-point shots made by the player.
+`att3P` |                    The number of three-point shots attempted by the player.
+`pct3p` |                   The percentage of three-point shots made by the player.
+`eFGpct` |                 A measure that takes into account the value of three-point shots in scoring efficiency.
+`TSpct` |                    A measure of overall shooting efficiency that includes field goals, three-pointers, and free throws.
+`PPG` |                   The average number of points scored by the player in each game.
+`RPG` |                   The average number of rebounds grabbed by the player in each game.
+`TRBpct` |                 An estimated percentage of available rebounds grabbed by the player while they are on the court.
+`APG` |                    The average number of assists the player records in each game.
+`ASTpct` |                  An estimated percentage of teammate field goals a player assisted while they are on the court.
+`SPG` |                     The average number of steals the player records in each game.
+`BPG` |                    The average number of blocks the player records in each game.
+`TOPG` |                  The average number of turnovers committed by the player in each game.
+`VI` |                       The player's versatility index, a metric that measures a player's ability to produce in points, assists, and rebounds.
+`ORTG` |                   The number of points produced by the player per 100 total individual possessions.
+`DRTG` |                    An estimate of how many points the player allowed per 100 possessions they individually faced while on the court. This reflects the player's defensive performance.
 
 
 ```{r}
-library("readxl")
-nba <- read_excel("C:/Users/theji/Documents/nba.xlsx")
-nba
+#summary(player.df)
+
+#is.na(player.df)
+#which(colSums(is.na(player.df))>0)
+#colSums(is.na(player.df))
+
+
+#kable(player.df %>%
+#        select(everything()) %>%  
+#        summarise_all(funs(sum(is.na(.)))))%>%
+#  kable_styling(latex_options = c("striped", "scale_down","HOLD_position"))
+```
+
+Histograms to show the spread of the variables are shown below.
+
+```{r}
+# Identify numeric columns for histogram plotting
+numeric_columns <- sapply(player.df, is.numeric)
+
+# Get the column names of the numeric columns
+numeric_column_names <- colnames(player.df)[numeric_columns]
+
+# Create histograms for numeric columns
+histograms <- lapply(numeric_column_names, function(col_name) {
+  ggplot(player.df, aes_string(x = col_name)) +
+    geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
+    labs(title = paste("Histogram of", col_name), x = col_name, y = "Frequency")
+})
+
+# Arrange the histograms in a grid
+grid.arrange(grobs = histograms, ncol = 5)
 ```
 
 
 
-## Analysis and Results
+## Statistical Modeling
 
-[text]
+## Conclusion
 
-### Data and Vizualisation
-
-[text]
-
-### Statistical Modeling
-
-### Conclusion
-
-## References
+# References
