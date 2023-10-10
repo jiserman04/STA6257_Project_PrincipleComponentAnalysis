@@ -129,7 +129,7 @@ We see the first three variables, `NAME`, `TEAM`, and `POS`, are strings, and th
 
 
 ```{r}
-#summary(player.df)
+summary(player.df)
 
 #is.na(player.df)
 #which(colSums(is.na(player.df))>0)
@@ -167,7 +167,7 @@ Boxplots with outliers included are shown below.
 # Create boxplots for numeric columns
 boxplots <- lapply(numeric_column_names, function(col_name) {
   ggplot(player.df, aes_string(x = col_name)) +
-    geom_boxplot(binwidth = 5, fill = "skyblue", color = "black")
+    geom_boxplot(fill = "skyblue", color = "black")
 })
 
 # Arrange the boxplots in a grid
