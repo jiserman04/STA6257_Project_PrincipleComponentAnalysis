@@ -3,7 +3,7 @@ title: "Principle Component Analysis"
 author: "Jordan Iserman, Jeshurun Moses, & Harsha Pola"
 date: '`r Sys.Date()`'
 format:
-  html:
+   html:
     code-fold: true
 course: STA 6257 - Advanced Statistical Modeling
 bibliography: references.bib # file contains bibtex for references
@@ -46,13 +46,13 @@ PCA is valuable for objectively selecting critical variables, especially when va
 
 This article explores the social effects of intelligent sports systems using PCA and fuzzy control technology. It investigates how these systems respond to users, focusing on interface design and division of data matrices. The goal is to understand their societal implications [@chen]. The prominence of perceived usefulness as the most pivotal factor emphasizes its paramount importance in engaging users. The article emphasizes the necessity of understanding the broader societal impact of these systems, given the ever-evolving technological landscape. It acknowledges potential research constraints, such as sample size and reliance on self-reported data, which warrant additional investigation.
 
-[11] In this article the primary objective is to classify sports actions using 3D motion data. The article proposes a combination approach that involves Principal Component Analysis, Random Forest and Genetic Algorithm.
+In this article the primary objective is to classify sports actions using 3D motion data. The article proposes a combination approach that involves Principal Component Analysis, Random Forest and Genetic Algorithm.
 This article uses 3D motion data consisting of 114 dimensions indicators as input features for classification. A hybrid classification model combining PCA and RF is proposed. PCA is used to reduce the dimensionality of the data.
 PCA is noted for its advantage in dimensionality reduction without losing the essential features of the original data which contributes to improved overall sport action classification accuracy.
 This article shows an innovative approach to classify sports actions based on 3D motion data leveraging advanced techniques such as PCA,RF,GA to achieve high accuracy [@weiwei].
 
 
-[12] The paper under consideration conducts a systematic review focusing on the application of Principal Component Analysis (PCA) in sports science, with a specific emphasis on soccer, basketball, and rugby. The primary objective is to identify the most pertinent variables for tasks like training program development, performance analysis, and talent identification within these sports. The importance of this paper lies in the fact that PCA, a robust statistical technique, can effectively reduce complex data sets' dimensionality and highlight key variables.The methodology adhered to the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines. It encompassed a comprehensive search of electronic databases like PubMed, Scopus, and Web of Science. The authors also manually scoured the references of included studies to identify any additional pertinent articles [@pino].
+The paper under consideration conducts a systematic review focusing on the application of Principal Component Analysis (PCA) in sports science, with a specific emphasis on soccer, basketball, and rugby. The primary objective is to identify the most pertinent variables for tasks like training program development, performance analysis, and talent identification within these sports. The importance of this paper lies in the fact that PCA, a robust statistical technique, can effectively reduce complex data sets' dimensionality and highlight key variables.The methodology adhered to the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines. It encompassed a comprehensive search of electronic databases like PubMed, Scopus, and Web of Science. The authors also manually scoured the references of included studies to identify any additional pertinent articles [@pino].
 
 The article titled "Multivariate Exploratory Comparative Analysis of LaLiga Teams" employs Principal Component Analysis (PCA) to evaluate the performance of LaLiga teams with the aim of identifying key performance indicators (KPIs) that distinguish successful teams from less successful ones. This study analyzed data from three seasons (2015/16, 2016/17, and 2017/18), encompassing 57 performance indicators categorized into goal scoring, offensive, and defensive metrics. The findings indicate that successful teams excel in successful passes, dynamic offensive transitions, and effective shots and crosses, while less successful teams tend to prioritize defensive actions, struggle with goal-scoring, and maintain longer ball possession times in the final third of the field. PCA's application offers a robust, multivariate approach to comprehending performance differences among teams. The study underscores the importance of KPIs in sports analysis and management for predicting and enhancing performance. These insights can be applied across various sports, informing the development of performance analysis tools and methodologies. Ultimately, this research illuminates essential performance indicators in football and their broader relevance in understanding sports success [@stone].
 
@@ -97,7 +97,7 @@ We see the first three variables, `NAME`, `TEAM`, and `POS`, are strings, and th
 
 
 | Variables | Description |
-|----|-------------|
+|--|-------------|
 `NAME`   |  The full name of the basketball player
 `TEAM`    |            The team that the player is a part of
 `POS`      |              The player's position on the basketball court (e.g., point guard, shooting guard,           small forward, power forward, center)
@@ -154,13 +154,26 @@ numeric_column_names <- colnames(player.df)[numeric_columns]
 # Create histograms for numeric columns
 histograms <- lapply(numeric_column_names, function(col_name) {
   ggplot(player.df, aes_string(x = col_name)) +
-    geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
-    labs(title = paste("Histogram of", col_name), x = col_name, y = "Frequency")
+    geom_histogram(binwidth = 5, fill = "skyblue", color = "black")
 })
 
 # Arrange the histograms in a grid
 grid.arrange(grobs = histograms, ncol = 5)
 ```
+
+Boxplots with outliers included are shown below.
+
+```{r}
+# Create boxplots for numeric columns
+boxplots <- lapply(numeric_column_names, function(col_name) {
+  ggplot(player.df, aes_string(x = col_name)) +
+    geom_boxplot(binwidth = 5, fill = "skyblue", color = "black")
+})
+
+# Arrange the boxplots in a grid
+grid.arrange(grobs = boxplots, ncol = 5)
+```
+
 
 
 
