@@ -102,7 +102,7 @@ dim(nba)
 names(nba)
 ```
 
-```{r, echo = FALSE}
+```{r}
 library(imputeTS)
 
 # Impute NAs using the mean
@@ -143,25 +143,27 @@ library(pvclust)
 result <- pvclust(correlation_matrix)
 plot(result)
 
+```
 
+```{r}
 
 #devtools::install_github("laresbernardo/lares")
-#library(lares)
-#Sys.unsetenv("LARES_FONT") # Temporal
-#corr_cross(nba, # name of the data set
-#           max_pvalue = 0.05, # have only significant correlations (at the 5% level)
-#           top = 10 # display the first 10 pairs of variables (by correlation coefficient)
-#)
+library(lares)
+Sys.unsetenv("LARES_FONT") # Temporal
+corr_cross(nba, # name of the data set
+           max_pvalue = 0.05, # have only significant correlations (at the 5% level)
+           top = 10 # display the first 10 pairs of variables (by correlation coefficient)
+)
 
-#pca = prcomp(nba_data, scale=T)
+pca = prcomp(nba_data, scale=T)
 
-#summary(pca)
+summary(pca)
 
-#library(factoextra)
-#p1_ess <- fviz_eig(pca, addlabels = TRUE, choice='eigenvalue',main ="Eigenvalues of 
-#                   the explained inertia")
-#p2_ess <- fviz_eig(pca, addlabels = TRUE, main="Proportion of variances")
-#grid.arrange(p1_ess, p2_ess, nrow=1,name = "arrange")
+library(factoextra)
+p1_ess <- fviz_eig(pca, addlabels = TRUE, choice="eigenvalue",main ="Eigenvalues of 
+                   the explained inertia")
+p2_ess <- fviz_eig(pca, addlabels = TRUE, main="Proportion of variances")
+grid.arrange(p1_ess, p2_ess, nrow=1,name = "arrange")
 ```
 
 
