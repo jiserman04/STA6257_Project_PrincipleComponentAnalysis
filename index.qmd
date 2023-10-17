@@ -66,7 +66,7 @@ PCA has found wide-ranging applications, including data visualization, clusterin
 
 ## Covariance Matrix
 
-The purpose of calculating the covariance matrix in data analysis is to understand the relationships between variables in a dataset. This matrix is particularly valuable in identifying correlations and redundancies among variables. Here's a summary of key points related to the covariance matrix. The primary goal is to analyze how the variables in a dataset vary in relation to each other. This analysis helps uncover any existing relationships or dependencies between variables.
+The purpose of calculating the covariance matrix in data analysis is to understand the relationships between variables in a dataset [@jaadi]. This matrix is particularly valuable in identifying correlations and redundancies among variables. Here's a summary of key points related to the covariance matrix. The primary goal is to analyze how the variables in a dataset vary in relation to each other. This analysis helps uncover any existing relationships or dependencies between variables.
 The covariance matrix is a square matrix with dimensions p × p, where p is the number of variables (dimensions) in the dataset. For a 3-dimensional dataset with variables x, y, and z, the covariance matrix is a 3x3 matrix. The covariance matrix is symmetric, meaning that covariances between variables are symmetric with respect to the main diagonal. In other words, the covariance of x with y is the same as the covariance of y with x. The entries (elements) of the covariance matrix represent covariances between pairs of initial variables. For a 3x3 matrix, the entries are:
 
 ```{r, out.width="100%"}
