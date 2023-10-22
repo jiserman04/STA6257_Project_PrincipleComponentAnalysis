@@ -64,28 +64,26 @@ PCA has found wide-ranging applications, including data visualization, clusterin
 
 # Methods
 
+The goal of this project is to demonstrate an effective usage of principal component analysis on a large dataset. In this section, principal component analysis is explained, as well as the covariance matrix.
+
 ## Covariance Matrix
 
-The purpose of calculating the covariance matrix in data analysis is to understand the relationships between variables in a dataset [@jaadi]. This matrix is particularly valuable in identifying correlations and redundancies among variables. Here's a summary of key points related to the covariance matrix. The primary goal is to analyze how the variables in a dataset vary in relation to each other. This analysis helps uncover any existing relationships or dependencies between variables.
-The covariance matrix is a square matrix with dimensions p × p, where p is the number of variables (dimensions) in the dataset. For a 3-dimensional dataset with variables x, y, and z, the covariance matrix is a 3x3 matrix. The covariance matrix is symmetric, meaning that covariances between variables are symmetric with respect to the main diagonal. In other words, the covariance of x with y is the same as the covariance of y with x. The entries (elements) of the covariance matrix represent covariances between pairs of initial variables. For a 3x3 matrix, the entries are:
+The purpose of calculating the covariance matrix in data analysis is to understand the relationships between variables in a dataset [@jaadi]. This matrix is particularly valuable in identifying correlations and redundancies among variables. Here's a summary of key points related to the covariance matrix. The primary goal is to analyze how the variables in a dataset vary in relation to each other. This analysis helps uncover any existing relationships or dependencies between variables. The covariance matrix is a square matrix with dimensions p × p, where p is the number of variables (dimensions) in the dataset. For a 3-dimensional dataset with variables x, y, and z, the covariance matrix is a 3x3 matrix. The covariance matrix is symmetric, meaning that covariances between variables are symmetric with respect to the main diagonal. In other words, the covariance of x with y is the same as the covariance of y with x. The entries (elements) of the covariance matrix represent covariances between pairs of initial variables. For a 3x3 matrix, the entries are:
 
-```{r, out.width="100%"}
-library(imager)
+\begin{bmatrix}
+Cov(x,x) & Cov(x,y) & Cov(x,z)\\
+Cov(y,x) & Cov(y,y) & Cov(y,z)\\
+Cov(z,x) & Cov(z,y) & Cov(z,z)
+\end{bmatrix}
 
-im = load.image("C:/Users/theji/Documents/Advanced Statistical Modelling/cov.png")
+A positive covariance indicates a positive linear relationship between two variables, while a negative covariance suggests a negative linear relationship. A covariance of zero implies no linear relationship. When variables have high positive covariances, it indicates redundancy or similarity in the information they carry. In such cases, one of these variables may be redundant for modeling purposes. While the covariance matrix is a valuable tool for understanding linear relationships between variables, it does not capture the full complexity of data relationships. To explore nonlinear or more subtle associations, additional statistical methods like correlation analysis or principal component analysis (PCA) may be used.
 
-plot(im)
-```
+## Principal Component Analysis
 
-
-A positive covariance indicates a positive linear relationship between two variables, while a negative covariance suggests a negative linear relationship. A covariance of zero implies no linear relationship.
-When variables have high positive covariances, it indicates redundancy or similarity in the information they carry. In such cases, one of these variables may be redundant for modeling purposes.
-While the covariance matrix is a valuable tool for understanding linear relationships between variables, it does not capture the full complexity of data relationships. To explore nonlinear or more subtle associations, additional statistical methods like correlation analysis or principal component analysis (PCA) may be used.
+Principal component analysis is a method of analyzing a data set by reducing a large number of variables into a smaller number of principal components. Principal component analysis will reduce the dimensionality of the data set, and make the model much simpler.
 
 
-
-
-```{r}
+```{r, echo=FALSE}
 library(knitr)
 library(kableExtra)
 library(dplyr)
@@ -97,16 +95,13 @@ library(ggplot2)
 nba = player.df[,4:ncol(player.df)]
 nba = as.data.frame(sapply(nba, as.numeric ))
 names = player.df[,2]
-
-dim(nba)
-names(nba)
 ```
 
-```{r}
+```{r, echo=FALSE}
 library(imputeTS)
 
 # Impute NAs using the mean
-nba_data <- na.mean(nba)
+nba_data <- na_mean(nba)
 
 
 library(ggcorrplot)
@@ -128,10 +123,9 @@ standardized_features <- scale(features)
 # Calculate the correlation matrix
 correlation_matrix <- cor(standardized_features)
 
-print(correlation_matrix)
 ```
 
-```{r}
+```{r, include=FALSE, echo=FALSE}
 # Load the necessary library
 library(corrplot)
 
@@ -141,8 +135,10 @@ corrplot(correlation_matrix, method = "color", type = "upper", tl.cex = 0.7)
 #dendrogram that illustrates hierarchical clustering of variables based on their correlations. This can help identify groups of variables that are more strongly related to each other.
 library(pvclust)
 result <- pvclust(correlation_matrix)
-plot(result)
+```
 
+```{r}
+plot(result)
 ```
 
 ```{r}
