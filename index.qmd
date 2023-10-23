@@ -76,6 +76,10 @@ Cov(y,x) & Cov(y,y) & Cov(y,z)\\
 Cov(z,x) & Cov(z,y) & Cov(z,z)
 \end{bmatrix}
 
+The formula to calculate $Cov(X,Y)$ for any random variables, $X$ and $Y$ is as follows [@chiou]:
+
+$$Cov(X, Y ) = E [(X − E [X])(Y − E [Y ])]$$
+
 A positive covariance indicates a positive linear relationship between two variables, while a negative covariance suggests a negative linear relationship. A covariance of zero implies no linear relationship. When variables have high positive covariances, it indicates redundancy or similarity in the information they carry. In such cases, one of these variables may be redundant for modeling purposes. While the covariance matrix is a valuable tool for understanding linear relationships between variables, it does not capture the full complexity of data relationships. To explore nonlinear or more subtle associations, additional statistical methods like correlation analysis or principal component analysis (PCA) may be used.
 
 ## Principal Component Analysis
