@@ -78,7 +78,7 @@ Cov(z,x) & Cov(z,y) & Cov(z,z)
 
 The formula to calculate $Cov(X,Y)$ for any random variables, $X$ and $Y$ is as follows [@chiou]:
 
-$$Cov(X, Y ) = E [(X − E [X])(Y − E [Y ])]$$
+$$Cov(X,Y) = E[(X − E[X])(Y − E[Y])]$$
 
 A positive covariance indicates a positive linear relationship between two variables, while a negative covariance suggests a negative linear relationship. A covariance of zero implies no linear relationship. When variables have high positive covariances, it indicates redundancy or similarity in the information they carry. In such cases, one of these variables may be redundant for modeling purposes. While the covariance matrix is a valuable tool for understanding linear relationships between variables, it does not capture the full complexity of data relationships. To explore nonlinear or more subtle associations, additional statistical methods like correlation analysis or principal component analysis (PCA) may be used.
 
@@ -151,7 +151,6 @@ correlation_matrix <- cor(standardized_features)
 ```
 
 ```{r, include=FALSE, echo=FALSE}
-# Load the necessary library
 library(corrplot)
 
 # Create a heatmap of the correlation matrix
@@ -166,17 +165,23 @@ result <- pvclust(correlation_matrix)
 plot(result)
 ```
 
+This clustering dendrogram shows how similar the variables are. On the right side, it shows that 2-point attempts and free-throw attempts are highly correlated variables, while other variables do not affect these as much. 
+
 ```{r}
 library(lares)
-Sys.unsetenv("LARES_FONT") # Temporal
-corr_cross(nba, # name of the data set
+Sys.unsetenv("LARES_FONT")
+corr_cross(nba,
            max_pvalue = 0.05, # have only significant correlations (at the 5% level)
            top = 10 # display the first 10 pairs of variables (by correlation coefficient)
 )
+```
 
+The plot above shows the 10 highest correlations between variables. A correlation of 1 between 2 variables shows that they provide the same information. This makes sense, as both variables are based on how much time a player spends on the court during a game. Some other variables have correlations of lower than one, such as effective field goal percentage and total shooting percentage.
+
+```{r}
 pca = prcomp(nba_data, scale=T)
 
-summary(pca)
+#summary(pca)
 
 library(factoextra)
 p1_ess <- fviz_eig(pca, addlabels = TRUE, choice="eigenvalue",main ="Eigenvalues of 
@@ -185,7 +190,9 @@ p2_ess <- fviz_eig(pca, addlabels = TRUE, main="Proportion of variances")
 grid.arrange(p1_ess, p2_ess, nrow=1,name = "arrange")
 ```
 
-## Data and Vizualisation
+These charts show how much of the variation is explained by each principal component. The first ten principal components explain 86% of the variation. This means that the 28 dimensions of this data set can be reduced to 10, and only 14% of the variation will be unexplained.
+
+## Data and Visualization
 
 The data used for this analysis was retrieved from the NBA's official website. The data includes statistics about player performance, such as offensive rating and defensive rating, points per game, and free throw percentage. We see the first three variables, `NAME`, `TEAM`, and `POS`, are strings, and the rest of the variables are numerical. Below is the description of the variables.
 
@@ -245,7 +252,6 @@ summary(player.df)
 #is.na(player.df)
 #which(colSums(is.na(player.df))>0)
 #colSums(is.na(player.df))
-
 
 #kable(player.df %>%
 #        select(everything()) %>%  
