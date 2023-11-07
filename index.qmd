@@ -17,7 +17,7 @@ editor:
     wrap: 72
 ---
 
-```{r}
+```{r,echo=FALSE}
 library(readxl)
 library(knitr)
 library(kableExtra)
@@ -161,13 +161,13 @@ library(pvclust)
 result <- pvclust(correlation_matrix)
 ```
 
-```{r}
+```{r,echo=FALSE}
 plot(result)
 ```
 
 This clustering dendrogram shows how similar the variables are. On the right side, it shows that 2-point attempts and free-throw attempts are highly correlated variables, while other variables do not affect these as much. 
 
-```{r}
+```{r,echo=FALSE}
 library(lares)
 Sys.unsetenv("LARES_FONT")
 corr_cross(nba,
@@ -178,7 +178,7 @@ corr_cross(nba,
 
 The plot above shows the 10 highest correlations between variables. A correlation of 1 between 2 variables shows that they provide the same information. This makes sense, as both variables are based on how much time a player spends on the court during a game. Some other variables have correlations of lower than one, such as effective field goal percentage and total shooting percentage.
 
-```{r}
+```{r,echo=FALSE}
 pca = prcomp(nba_data, scale=T)
 
 #summary(pca)
@@ -196,7 +196,7 @@ These charts show how much of the variation is explained by each principal compo
 
 The data used for this analysis was retrieved from the NBA's official website. The data includes statistics about player performance, such as offensive rating and defensive rating, points per game, and free throw percentage. We see the first three variables, `NAME`, `TEAM`, and `POS`, are strings, and the rest of the variables are numerical. Below is the description of the variables.
 
-```{r}
+```{r,echo=FALSE}
 library(readxl)
 library(knitr)
 library(kableExtra)
@@ -209,10 +209,6 @@ player.df <- read_excel("C:/Users/theji/Documents/Advanced Statistical Modelling
 # Check the structure of the data frame
 #str(player.df)
 ```
-
-
-
-
 
 | Variables | Description |
 |--|-------------|
@@ -246,8 +242,8 @@ player.df <- read_excel("C:/Users/theji/Documents/Advanced Statistical Modelling
 `DRTG` |                    An estimate of how many points the player allowed per 100 possessions they individually faced while on the court. This reflects the player's defensive performance.
 
 
-```{r}
-summary(player.df)
+```{r, include=FALSE, echo=FALSE}
+#summary(player.df)
 
 #is.na(player.df)
 #which(colSums(is.na(player.df))>0)
@@ -261,7 +257,7 @@ summary(player.df)
 
 Histograms to show the spread of the variables are shown below.
 
-```{r}
+```{r,echo=FALSE}
 # Identify numeric columns for histogram plotting
 numeric_columns <- sapply(player.df, is.numeric)
 
@@ -280,7 +276,7 @@ grid.arrange(grobs = histograms, ncol = 5)
 
 Boxplots with outliers included are shown below.
 
-```{r}
+```{r,echo=FALSE}
 # Create boxplots for numeric columns
 boxplots <- lapply(numeric_column_names, function(col_name) {
   ggplot(player.df, aes_string(x = col_name)) +
@@ -293,9 +289,82 @@ grid.arrange(grobs = boxplots, ncol = 5)
 
 The histograms shown have a variety of shapes. Some appear to be distributed normally, while others are skewed right. This may be because there are many more average players than there are star-players that have a dominating presence on the court. The boxplots show outliers primarily to the right for most stats to further support the claim that some players perform significantly better than the average players.
 
+```{r,echo=FALSE}
+library(RColorBrewer)
+
+fviz_pca_var(pca, col.var = "cos2",
+             gradient.cols = brewer.pal(3, "Set1"),
+             repel = TRUE,
+             title = "Cos 2 of the variables NBA Stats - PCA")
+
+```
+
+In the factorial map above, we observe the relationships between statistical variables of NBA players. We can see that the variables SPG  GP  Ftpct   VI  pct2P  Tspct  FGpcl  are Negatively correlated with the first dimension, while the variables DGRT USGpct  TOPG  APG  MPG  FTA  ThreePA  BPG and TwoBa and positively correlated with the second dimension. Both the dimensions represented on the graph shows 33.4% and 11.5% of the variance of the data respectively. Variables which are positively correlated with high cos2  indicate  a good representation of these axes. Variables which are negatively correlated with low cos2 indicate that the principal axes do not perfectly represent represent the variable. 
 
 
-## Statistical Modeling
+```{r,echo=FALSE}
+# Contributions of variables to PC1
+c1 <- fviz_contrib(pca, "var", axes=1)
+# Contributions of variables to PC2
+c2 <- fviz_contrib(pca, "var", axes=2)
+# Contributions of variables to PC3
+c3 <- fviz_contrib(pca, "var", axes=3)
+# Contributions of variables to PC4
+c4 <- fviz_contrib(pca, "var", axes=4)
+# Combine the contributions of the variables to PC1, PC2, PC3, and PC4.
+grid.arrange(c1, c2, c3, c4, top='Contribution of NBA stats variables to the principal components')
+
+```
+
+These graphs show the amount that each variable contributes to each dimension.
+
+```{r,echo=FALSE}
+barplot(pca$rotation[,1], las=2, col="darkblue", main = "1st component (Dim-1)")
+```
+
+In the first dimension the main contributions are from MPG, MINpct, and PPG. TRBpct, TOpct and ORTG are the least contributions.
+
+```{r,echo=FALSE}
+barplot(pca$rotation[,2], las=2, col="darkblue", main = "2nd component (Dim-2)")
+```
+In the second dimension the main contributions are from eFGpvt, Tspct, pct2P and the least dimension is BPG, GP.
+
+```{r,echo=FALSE}
+barplot(pca$rotation[,3], las=2, col="darkblue", main = "3rd component (Dim-3)")
+```
+
+In the third dimension the main contributions are from TRBpct and USGpct. The least dimension is TwoPA, FTA, PPG and APG.
+
+```{r,echo=FALSE}
+barplot(pca$rotation[,4], las=2, col="darkblue", main = "4th component (Dim-4)")
+```
+
+In the fourth dimension the main contributions are from DRTG, ASTpct and GP. Tspct, eFGpct are the least contribution.
+
+```{r, echo=FALSE}
+#calculateScore = function(data) {
+#  return(sum((pca$rotation[, 1]*data)^2))
+#}
+#player.df$NAME[sort.int(apply(nba, 1, calculateScore), decreasing = T, 
+#                                           index.return = T)$ix[1:10]]
+```
+
+```{r,echo=FALSE}
+#calculateScore = function(data) {
+#  return(sum((pca$rotation[, 2]*data)^2))
+#}
+#nba_data$GP[sort.int(apply(nba, 1, calculateScore), decreasing = T, index.return = T)$ix[1:10]]
+```
+
+```{r,echo=FALSE}
+fviz_pca_biplot(pca, col.var = "contrib", labelsize = 3, repel = TRUE, geom = "point", point.size = 2, point.color = "blue", title = "PCA Biplot Individuals and variables")
+```
+
+Biplot is an overlay of a score plot. This is a common plot in Principal Component Analysis. A biplot allows information on both samples and variables of a data matrix to be displayed graphically. We see the observations and the variables in the same plane usint the first two components.
+
+```{r,echo=FALSE}
+
+```
 
 ## Conclusion
 
