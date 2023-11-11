@@ -93,6 +93,7 @@ $$\underset{||w||=1}{argmax}(t^{T}t) = \underset{||w||=1}{argmax}(w^{T}X^{T}Xw)$
 - *X* is a matrix of the data to be reduced with *i* rows and *j* columns
 - *w* is a vector of length *j* with the data of a given column
 - *t* is a linear combination of the variables from matrix *X*
+- *argmax* returns the largest element in a row or column
 
 To determine the amount of variation in the data, the columns of X may be projected on t by using the formula:
 
@@ -105,6 +106,11 @@ The percentage of explained variation is given by the formula:
 
 $$\frac{||X||^{2} - ||E||^{2}}{||X||^{2}}* 100\%$$
 
+If model does not explain a sufficient amount of the variation in the data set, additional components can be added. If there are multiple components, the model is as follows:
+
+$$X = t_{1}p_{1}^{T} + ... + t_{n}p_{n}^{T} + E$$
+
+
 
 # Analysis and Results
 
@@ -113,9 +119,6 @@ library(knitr)
 library(kableExtra)
 library(dplyr)
 library(ggplot2)
-
-
-
 
 nba = player.df[,4:ncol(player.df)]
 nba = as.data.frame(sapply(nba, as.numeric ))
@@ -127,7 +130,6 @@ library(imputeTS)
 
 # Impute NAs using the mean
 nba_data <- na_mean(nba)
-
 
 library(ggcorrplot)
 
@@ -147,7 +149,6 @@ standardized_features <- scale(features)
 
 # Calculate the correlation matrix
 correlation_matrix <- cor(standardized_features)
-
 ```
 
 ```{r, include=FALSE, echo=FALSE}
@@ -296,7 +297,6 @@ fviz_pca_var(pca, col.var = "cos2",
              gradient.cols = brewer.pal(3, "Set1"),
              repel = TRUE,
              title = "Cos 2 of the variables NBA Stats - PCA")
-
 ```
 
 In the factorial map above, we observe the relationships between statistical variables of NBA players. We can see that the variables SPG  GP  Ftpct   VI  pct2P  Tspct  FGpcl  are Negatively correlated with the first dimension, while the variables DGRT USGpct  TOPG  APG  MPG  FTA  ThreePA  BPG and TwoBa and positively correlated with the second dimension. Both the dimensions represented on the graph shows 33.4% and 11.5% of the variance of the data respectively. Variables which are positively correlated with high cos2  indicate  a good representation of these axes. Variables which are negatively correlated with low cos2 indicate that the principal axes do not perfectly represent represent the variable. 
@@ -313,7 +313,6 @@ c3 <- fviz_contrib(pca, "var", axes=3)
 c4 <- fviz_contrib(pca, "var", axes=4)
 # Combine the contributions of the variables to PC1, PC2, PC3, and PC4.
 grid.arrange(c1, c2, c3, c4, top='Contribution of NBA stats variables to the principal components')
-
 ```
 
 These graphs show the amount that each variable contributes to each dimension.
@@ -363,9 +362,11 @@ fviz_pca_biplot(pca, col.var = "contrib", labelsize = 3, repel = TRUE, geom = "p
 Biplot is an overlay of a score plot. This is a common plot in Principal Component Analysis. A biplot allows information on both samples and variables of a data matrix to be displayed graphically. We see the observations and the variables in the same plane usint the first two components.
 
 ```{r,echo=FALSE}
-
+fviz_pca_biplot(pca, col.var = "contrib", labelsize = 3, repel = TRUE, title = "PCA Biplot Individuals and variables", xlab = "PC1", ylab = "PC2")
 ```
 
 ## Conclusion
+
+This project shows an application of principal component analysis on an NBA data set. The model shows the relevance of each variable on the overall performance of players. The cosine values of each unit vector shows that many stats are closely related to other stats. For example, 2-point attempts and free-throw attempts are closely related. This may be because players shooting close to the rim are more likely to be fouled and receive a free-throw attempt. The four principal components used include combinations of the variables, and the amount that each variable contributes is shown above in the graph. These four components are constructed by creating linear combinations of the variables as unit vectors. This project shows how a data set with 28 variables can be reduced to a model that consists of four principal components. While principal component analysis may make a model that explains slightly less variation, it has simplicity that can be helpful for understanding a complex data set. 
 
 # References
