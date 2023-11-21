@@ -257,21 +257,21 @@ corrplot(correlation_matrix, method = "color", type = "upper", tl.cex = 0.7)
 
 The correlation matrix above shows the correlations between every possible combination of variables.  
 
-AGE and MPG: There is a strong positive correlation between AGE and MPG. This means that as cars get older, they tend to get worse gas mileage.
+AGE and MPG: There is a strong positive correlation between AGE and MPG. 
 
-GP and MPG: There is a strong negative correlation between GP and MPG. This means that cars with more horsepower tend to get worse gas mileage.
+GP and MPG: There is a strong negative correlation between GP and MPG. 
 
-MINpct and MPG: There is a strong negative correlation between MINpct and MPG. This means that cars with a higher percentage of minutes spent idling tend to get worse gas mileage.
+MINpct and MPG: There is a strong negative correlation between MINpct and MPG. 
 
-USGpct and MPG: There is a strong negative correlation between USGpct and MPG. This means that cars with a higher percentage of time spent under hard acceleration tend to get worse gas mileage.
+USGpct and MPG: There is a strong negative correlation between USGpct and MPG.
 
-TOPG and MPG: There is a strong negative correlation between TOPG and MPG. This means that cars with a higher percentage of top speed runs tend to get worse gas mileage.
+TOPG and MPG: There is a strong negative correlation between TOPG and MPG. 
 
-FTA and Ftpct: There is a strong positive correlation between FTA and Ftpct. This means that cars with a higher percentage of faults detected during automatic testing tend to have a higher percentage of faults detected during manual testing.
+FTA and Ftpct: There is a strong positive correlation between FTA and Ftpct. 
 
-Tspct and PPG: There is a strong positive correlation between Tspct and PPG. This means that cars with a higher percentage of time spent at a constant speed tend to have a higher points per gallon rating.
+Tspct and PPG: There is a strong positive correlation between Tspct and PPG. 
 
-MPG and PPG: There is a strong positive correlation between MPG and PPG. This means that cars with better gas mileage tend to have a higher points per gallon rating.
+MPG and PPG: There is a strong positive correlation between MPG and PPG. 
 
 ```{r}
 #=====================================================================================

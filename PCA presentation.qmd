@@ -1,0 +1,268 @@
+---
+title: "An Analysis of NBA Player Performance Using Principal Component Analysis"
+author: "Jordan Iserman, Jeshurun Moses, and Harsha Pola"
+format: revealjs
+editor: visual
+---
+
+## Introduction
+
+- What is principal component analysis (PCA)?
+- What dataset is being used?
+
+
+## Methods: Linear Combinations
+
+```{r,echo=FALSE, include=FALSE}
+library(readxl)
+library(knitr)
+library(kableExtra)
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+library(gtable)
+library(RColorBrewer)
+library(factoextra)
+library(imputeTS)
+library(psych)
+library(ggcorrplot)
+library(corrplot)
+library(lares)
+library(pvclust)
+
+
+# Read the excel file into a data frame
+player.df <- read.csv("/Users/theji/Documents/Advanced Statistical Modelling/nba.csv", header = TRUE)
+# Check the structure of the data frame
+#str(player.df)
+nba = player.df[,4:ncol(player.df)]
+nba = as.data.frame(sapply(nba, as.numeric ))
+names = player.df[,1]
+nba_data <- na_mean(nba)
+pca = prcomp(nba_data, scale=T)
+features <- nba_data[, c(
+  "AGE", "GP", "MPG", "MINpct", "USGpct", "TOpct",
+  "FTA", "Ftpct", "TwoPA", "pct2P", "ThreePA", "pct3P",
+  "eFGpct", "Tspct", "PPG", "RPG", "TRBpct", "APG", "ASTpct",
+  "SPG", "BPG", "TOPG", "VI", "ORTG", "DRTG"
+)]
+
+# Standardize the features (mean=0, sd=1)
+standardized_features <- scale(features)
+
+# Calculate the correlation matrix
+correlation_matrix <- cor(standardized_features)
+
+corrplot(correlation_matrix, method = "color", type = "upper", tl.cex = 0.7)
+```
+
+- Principal component analysis reduces the dimensionality of data sets
+- Multiple dimensions can be turned into a linear combination
+- The linear combination is a unit vector, or a vector of length 1
+- Multiple principal components can be represented on a coordinate plane
+
+
+## Data: Correlation Matrix
+
+```{r}
+corrplot(correlation_matrix, method = "color", type = "upper", tl.cex = 0.7)
+```
+
+## Data: Best Performers
+
+```{r}
+#TOP 10 PLAYERS BY POINTS PER GAME
+# Sorting players by points per game
+top_points_players <- player.df[order(player.df$PPG, decreasing = TRUE), ]
+
+# Selecting the top 10 players
+top_10_points_players <- top_points_players[1:10, ]
+
+# Creating a bar plot for the top 10 players by points per game
+ggplot(top_10_points_players, aes(x = reorder(NAME, -PPG), y = PPG, fill = NAME)) +
+  geom_bar(stat = "identity", color = "black") +
+  labs(title = "Top 10 Players by Points Per Game", x = "Player", y = "Points Per Game") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## Data: Best Performers
+
+```{r}
+##TOP 10 PLAYERS BY 3-POINTERS PER GAME
+
+# Sorting players by 3-point percentage
+top_3p_players <- player.df[order(player.df$pct3P, decreasing = TRUE), ]
+# Selecting the top 10 players
+top_10_3p_players <- top_3p_players[1:10, ]
+# Creating a bar plot for the top 10 players by 3-point percentage
+ggplot(top_10_3p_players, aes(x = reorder(NAME, -pct3P), y = pct3P, fill = NAME)) +
+  geom_bar(stat = "identity", color = "black") +
+  labs(title = "Top 10 Players by 3-Pointers Percentage", x = "Player", y = "3-Point Percentage") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## Data: Best Performers
+
+```{r}
+##TOP 10 PLAYERS BY ASSISTS PER GAME
+
+# Sorting players by assists
+top_assists_players <- player.df[order(player.df$APG, decreasing = TRUE), ]
+
+# Selecting the top 10 players
+top_10_assists_players <- top_assists_players[1:10, ]
+
+# Creating a bar plot for the top 10 players by assists
+ggplot(top_10_assists_players, aes(x = reorder(NAME, -APG), y = APG, fill = NAME)) +
+  geom_bar(stat = "identity", color = "black") +
+  labs(title = "Top 10 Players by Assists", x = "Player", y = "Assists Per Game") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+
+## Analysis: Eigenvalues
+
+```{r}
+p1_ess <- fviz_eig(pca, addlabels = TRUE, choice="eigenvalue",main ="Eigenvalues of the Explained Inertia")
+p2_ess <- fviz_eig(pca, addlabels = TRUE, main="Proportion of Variances")
+grid.arrange(p1_ess, p2_ess, nrow=1,name = "arrange")
+```
+
+## Analysis: What Makes Each PC
+
+```{r}
+# Contributions of variables to PC1
+c1 <- fviz_contrib(pca, "var", axes=1)
+c1
+```
+
+## Analysis: What Makes Each PC
+
+```{r}
+# Contributions of variables to PC2
+c2 <- fviz_contrib(pca, "var", axes=2)
+c2
+```
+
+## Analysis: What Makes Each PC
+
+```{r}
+# Contributions of variables to PC3
+c3 <- fviz_contrib(pca, "var", axes=3)
+c3
+```
+
+## Analysis: What Makes Each PC
+
+```{r}
+# Contributions of variables to PC4
+c4 <- fviz_contrib(pca, "var", axes=4)
+c4
+```
+
+```{r, include=FALSE, echo=FALSE}
+# Identify numeric columns for histogram plotting
+numeric_columns <- sapply(player.df, is.numeric)
+
+# Get the column names of the numeric columns
+numeric_column_names <- colnames(player.df)[numeric_columns]
+
+# Create histograms for numeric columns
+histograms <- lapply(numeric_column_names, function(col_name) {
+  ggplot(player.df, aes_string(x = col_name)) +
+    geom_histogram(binwidth = 5, fill = "skyblue", color = "black")
+})
+
+# Arrange the histograms in a grid
+grid.arrange(grobs = histograms, ncol = 5)
+```
+
+```{r, include=FALSE, echo=FALSE}
+names = player.df[,1]
+grid.arrange(grobs = histograms, ncol = 4)
+```
+
+
+
+```{r, include=FALSE, echo=FALSE}
+calculateScore = function(data) {
+  return(sum((pca$rotation[, 1]*data)^2))
+}
+player.df$NAME[sort.int(apply(nba, 1, calculateScore), decreasing = T, 
+                                           index.return = T)$ix[1:10]]
+
+calculateScore = function(data) {
+  return(sum((pca$rotation[, 1]*data)^2))
+}
+player.df$NAME[sort.int(apply(nba, 1, calculateScore), decreasing = T, 
+                                           index.return = T)$ix[1:10]]
+
+calculateScore = function(data) {
+  return(sum((pca$rotation[, 2]*data)^2))
+}
+nba_data$GP[sort.int(apply(nba_data, 1, calculateScore), decreasing = T, index.return = T)$ix[1:10]]
+
+
+
+head(get_pca_ind(pca)$contrib[,1])
+
+head((pca$x[,1]^2)/(pca$sdev[1]^2))/dim(nba_data)[1]
+
+names[order(get_pca_ind(pca)$contrib[,1],decreasing=T)][1:10]
+```
+
+## Analysis: Which Players Contribute Most
+
+```{r}
+names_z1 = names[order(get_pca_ind(pca)$contrib[,1],decreasing=T)]
+fviz_contrib(pca, choice = "ind", axes = 1, top=20)+scale_x_discrete(labels=names_z1)
+```
+
+## Analysis: Which Players Contribute Most
+
+```{r}
+names_z2 = names[order(get_pca_ind(pca)$contrib[,2],decreasing=T)]
+fviz_contrib(pca, choice = "ind", axes = 2, top=20)+scale_x_discrete(labels=names_z2)
+```
+
+## Analysis: Which Players Contribute Most
+
+```{r}
+names_z3 = names[order(get_pca_ind(pca)$contrib[,3],decreasing=T)]
+fviz_contrib(pca, choice = "ind", axes = 3, top=20)+scale_x_discrete(labels=names_z3)
+```
+
+## Analysis: Which Players Contribute Most
+
+```{r}
+names_z4 = names[order(get_pca_ind(pca)$contrib[,4],decreasing=T)]
+fviz_contrib(pca, choice = "ind", axes = 4, top=20)+scale_x_discrete(labels=names_z4)
+```
+
+## Analysis: Variables
+
+```{r}
+fviz_pca_var(pca, col.var = "cos2",
+             gradient.cols = brewer.pal(3, "Set1"),
+             repel = TRUE,
+             title = "Cos 2 of the Variables NBA Stats - PCA")
+```
+
+## Analysis: Biplot
+
+```{r,echo=FALSE}
+fviz_pca_biplot(pca, col.var = "contrib", labelsize = 3, repel = TRUE, geom = "point", point.size = 2, point.color = "blue", title = "PCA Biplot Individuals and variables")
+```
+
+## Analysis: Players Overlay
+
+```{r}
+data.frame(z1=-pca$x[,1],z2=pca$x[,2]) %>% 
+  ggplot(aes(z1,z2,label=names, color=nba$min)) + geom_point(size=0) +
+  labs(title="Player ranking by minutes played on the PCA", x="Dim1 (33.4%)", 
+       y="Dim2 (11.5%)") +
+  theme_bw() + scale_color_gradient(low="red", high="darkblue")+
+  theme(legend.position="bottom") + geom_text(size=2, hjust=0.6, vjust=0,
+                                              check_overlap = TRUE)+
+  guides(color = guide_legend(title = "Minutes played"))
+```
