@@ -1,5 +1,5 @@
 ---
-title: "An Analysis of NBA Player Performance Using Principal Component Analysis"
+title: "An Analysis of NBA Players Using Principal Component Analysis"
 author: "Jordan Iserman, Jeshurun Moses, & Harsha Pola"
 date: '`r Sys.Date()`'
 format:
@@ -72,7 +72,7 @@ Principal Component Analysis (PCA) is a versatile technique rooted in
 sophisticated mathematical principles. Its prime role is to convert the
 original set containing possibly co-related variables into a smaller
 group called the principle component. Traditionally known as a technique
-applied to multivariate data PCA has now developed into numerous
+applied to multivariate data, PCA has now developed into numerous
 contexts. Being one of the most significant outcomes of practical linear
 algebra, PCA is usually used as a first phase for analyzing extensive
 sets. This utility goes beyond conventional data analysis to include
@@ -313,14 +313,14 @@ correlation_matrix <- cor(standardized_features)
 | Variables | Description                                                                                                                                                         |
 |---------------|---------------------------------------------------------|
 | `NAME`    | The full name of the basketball player                                                                                                                              |
-| `TEAM`    | The team that the player is a part of                                                                                                                               |
-| `POS`     | The player's position on the basketball court (e.g., point guard, shooting guard, small forward, power forward, center)                                             |
+| `TEAM`    | The player's team                                                                                                                               |
+| `POS`     | The player's position (e.g., point guard, shooting guard, small forward, power forward, center)                                             |
 | `AGE`     | The age of the player                                                                                                                                               |
 | `GP`      | The number of games played by the player                                                                                                                            |
 | `MPG`     | The average number of minutes the player spends on the court per game                                                                                               |
 | `MINpct`  | The percentage of total team minutes used by the player while they were on the floor.                                                                               |
-| `USGpct`  | An estimate of the percentage of team plays used by the player while they were on the floor. It measures how involved the player is in the team's offense.          |
-| `TOpct`   | The player's turnover rate, a metric that estimates the number of turnovers a player commits per 100 possessions.                                                   |
+| `USGpct`  | An estimated percentage of team plays used by the player while they were on the floor. It measures how involved the player is in the team's offense.          |
+| `TOpct`   | The player's turnover rate, an estimated number of turnovers a player commits per 100 possessions.                                                   |
 | `FTA`     | The number of free throws attempted by the player.                                                                                                                  |
 | `FTpct`   | The percentage of free throws made by the player.                                                                                                                   |
 | `att2P`   | The number of two-point shots attempted by the player.                                                                                                              |
@@ -329,15 +329,15 @@ correlation_matrix <- cor(standardized_features)
 | `pct3p`   | The percentage of three-point shots made by the player.                                                                                                             |
 | `eFGpct`  | A measure that takes into account the value of three-point shots in scoring efficiency.                                                                             |
 | `TSpct`   | A measure of overall shooting efficiency that includes field goals, three-pointers, and free throws.                                                                |
-| `PPG`     | The average number of points scored by the player in each game.                                                                                                     |
+| `PPG`     | The average points scored by the player in each game.                                                                                                     |
 | `RPG`     | The average number of rebounds grabbed by the player in each game.                                                                                                  |
 | `TRBpct`  | An estimated percentage of available rebounds grabbed by the player while they are on the court.                                                                    |
 | `APG`     | The average number of assists the player records in each game.                                                                                                      |
-| `ASTpct`  | An estimated percentage of teammate field goals a player assisted while they are on the court.                                                                      |
+| `ASTpct`  | An estimated percentage of field goals a player assisted while they are on the court.                                                                      |
 | `SPG`     | The average number of steals the player records in each game.                                                                                                       |
 | `BPG`     | The average number of blocks the player records in each game.                                                                                                       |
 | `TOPG`    | The average number of turnovers committed by the player in each game.                                                                                               |
-| `VI`      | The player's versatility index, a metric that measures a player's ability to produce in points, assists, and rebounds.                                              |
+| `VI`      | The player's versatility index, which measures a player's ability to produce in points, assists, and rebounds.                                              |
 | `ORTG`    | The number of points produced by the player per 100 total individual possessions.                                                                                   |
 | `DRTG`    | An estimate of how many points the player allowed per 100 possessions they individually faced while on the court. This reflects the player's defensive performance. |
 

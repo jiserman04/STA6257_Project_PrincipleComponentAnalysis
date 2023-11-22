@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jordan Iserman, Jeshurun Moses, &amp; Harsha Pola">
-<meta name="dcterms.date" content="2023-11-21">
+<meta name="dcterms.date" content="2023-11-22">
 
-<title>An Analysis of NBA Player Performance Using Principal Component Analysis</title>
+<title>An Analysis of NBA Players Using Principal Component Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -3379,7 +3379,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">An Analysis of NBA Player Performance Using Principal Component Analysis</h1>
+<h1 class="title">An Analysis of NBA Players Using Principal Component Analysis</h1>
 </div>
 
 
@@ -3396,7 +3396,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 21, 2023</p>
+      <p class="date">November 22, 2023</p>
     </div>
   </div>
   
@@ -3413,7 +3413,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
 <p>Principal component analysis is a method of analyzing a data set that can reduce many variables. Principal component analysis takes two or more variables and combines them into one principal component. A principal component is a linear combination of these variables as a unit vector. The weights of each variable are considered, and the linear combination accounts for the weight of each variable <span class="citation" data-cites="bro">(<a href="#ref-bro" role="doc-biblioref">Age K Smilde 2014</a>)</span>. The variables are weighted by using eigenvectors. The total amount of variance that can be explained by a given principal component is called an Eigenvalue. They can be either positive or negative. If the Covariance Matrix values are greater than zero, then it’s a good sign. Eigenvectors measure how each variable is associated with one another using a Covariance Matrix. These vectors are used to understand the direction of the spread of the data.</p>
 <section id="literature-review" class="level2">
 <h2 class="anchored" data-anchor-id="literature-review">Literature Review</h2>
-<p>Principal Component Analysis (PCA) is a versatile technique rooted in sophisticated mathematical principles. Its prime role is to convert the original set containing possibly co-related variables into a smaller group called the principle component. Traditionally known as a technique applied to multivariate data PCA has now developed into numerous contexts. Being one of the most significant outcomes of practical linear algebra, PCA is usually used as a first phase for analyzing extensive sets. This utility goes beyond conventional data analysis to include problems such as noise suppression, blind source separation, and data compression. However, it simplifies the large data or in essence, PCA is a foundation stone that facilitates exploring and interpreting the same. PCA reduces the complexity of huge datasets using the linear transformation of the vector place. Principal components are derived mathematically from an initial set of data which may consist of many variables. Through this process of dimensional reduction, data can be more intuitively interpreted, often summarized by only a few main factors. Through careful assessment of the compact data, users can easily identify trends, patterns, and outliers that could not have been detected if it had not been for the PCA application <span class="citation" data-cites="richardson">(<a href="#ref-richardson" role="doc-biblioref">Richardson 2009</a>)</span>.</p>
+<p>Principal Component Analysis (PCA) is a versatile technique rooted in sophisticated mathematical principles. Its prime role is to convert the original set containing possibly co-related variables into a smaller group called the principle component. Traditionally known as a technique applied to multivariate data, PCA has now developed into numerous contexts. Being one of the most significant outcomes of practical linear algebra, PCA is usually used as a first phase for analyzing extensive sets. This utility goes beyond conventional data analysis to include problems such as noise suppression, blind source separation, and data compression. However, it simplifies the large data or in essence, PCA is a foundation stone that facilitates exploring and interpreting the same. PCA reduces the complexity of huge datasets using the linear transformation of the vector place. Principal components are derived mathematically from an initial set of data which may consist of many variables. Through this process of dimensional reduction, data can be more intuitively interpreted, often summarized by only a few main factors. Through careful assessment of the compact data, users can easily identify trends, patterns, and outliers that could not have been detected if it had not been for the PCA application <span class="citation" data-cites="richardson">(<a href="#ref-richardson" role="doc-biblioref">Richardson 2009</a>)</span>.</p>
 <p>This paper provides an in-depth understanding of PCA use, interpreting, and understanding. Nevertheless, it is employed for traditional chemometric contexts but its findings may apply in other unrelated science fields. It entails generating a linear combination of variables for PCA. Another journal demonstrates one case study for 44 red wines taken from a single type of grape sauvignon blanc <span class="citation" data-cites="bro">(<a href="#ref-bro" role="doc-biblioref">Age K Smilde 2014</a>)</span>. This study conducted a delicate inspection involving parameter tests including alcohol content and acidity using the foss wine scan machine. As illustrative research, this study provides evidence that Principal Component Analysis is one of the powerful tools for the identification of meaningful patterns and in-depth comprehension of complex datasets. The advent of 3D motion capture technology has generated a great number of three-dimensional motion samples, which has increased interest in sports data classification and recognition. In this study a hybrid approach that employs PCA, RF, and GA featuring 114-dimensional elements for classifying sports motion classification. The development of the GA-PCA-RF model revealed that it was highly accurate in action prediction of the three types. The use of PCA for dimensionality reduction improves classification accuracy besides that of GA-based parameter optimization. This is a fresh and useful classification of sports activities among humans <span class="citation" data-cites="weiwei">(<a href="#ref-weiwei" role="doc-biblioref">Weiwei 2022</a>)</span>.</p>
 <p>Another method is called adaptive dimensionality reduction (ADR), which is a two-step process <span class="citation" data-cites="migenda">(<a href="#ref-migenda" role="doc-biblioref">N Migenda and Schenck 2021</a>)</span>. In the first step, ADR uses a neural network to learn the principal components of the data. In the second step, ADR uses a stopping rule to determine the number of principal components to keep. The stopping rule in ADR is based on the idea that if the principal components are not changing significantly, then ADR stops learning new principal components. The authors evaluated ADR on a variety of data sets and found that it was able to achieve better performance than traditional PCA methods.</p>
 <p>PCA has found wide-ranging applications, including data visualization, clustering, and classification. Recent advancements in PCA encompass its application to large-scale datasets (big data), integration with other machine learning techniques, and the development of more robust PCA approaches capable of handling outliers with greater resilience <span class="citation" data-cites="jolliffe">(<a href="#ref-jolliffe" role="doc-biblioref">Jolliffe and Cadima 2016</a>)</span>. This method hinges on the concept of segregating the illumination and reflection components within the image, effectively addressing the challenges posed by low-light conditions. In another study, the authors conducted thorough evaluations of this approach across a diverse range of low-light images, and their findings indicate a noteworthy enhancement in image quality, demonstrating the method’s effectiveness <span class="citation" data-cites="singh">(<a href="#ref-singh" role="doc-biblioref">Singh and Bhandari 2021</a>)</span>.</p>
@@ -3495,11 +3495,11 @@ X_{n}
 </tr>
 <tr class="even">
 <td><code>TEAM</code></td>
-<td>The team that the player is a part of</td>
+<td>The player’s team</td>
 </tr>
 <tr class="odd">
 <td><code>POS</code></td>
-<td>The player’s position on the basketball court (e.g., point guard, shooting guard, small forward, power forward, center)</td>
+<td>The player’s position (e.g., point guard, shooting guard, small forward, power forward, center)</td>
 </tr>
 <tr class="even">
 <td><code>AGE</code></td>
@@ -3519,11 +3519,11 @@ X_{n}
 </tr>
 <tr class="even">
 <td><code>USGpct</code></td>
-<td>An estimate of the percentage of team plays used by the player while they were on the floor. It measures how involved the player is in the team’s offense.</td>
+<td>An estimated percentage of team plays used by the player while they were on the floor. It measures how involved the player is in the team’s offense.</td>
 </tr>
 <tr class="odd">
 <td><code>TOpct</code></td>
-<td>The player’s turnover rate, a metric that estimates the number of turnovers a player commits per 100 possessions.</td>
+<td>The player’s turnover rate, an estimated number of turnovers a player commits per 100 possessions.</td>
 </tr>
 <tr class="even">
 <td><code>FTA</code></td>
@@ -3559,7 +3559,7 @@ X_{n}
 </tr>
 <tr class="even">
 <td><code>PPG</code></td>
-<td>The average number of points scored by the player in each game.</td>
+<td>The average points scored by the player in each game.</td>
 </tr>
 <tr class="odd">
 <td><code>RPG</code></td>
@@ -3575,7 +3575,7 @@ X_{n}
 </tr>
 <tr class="even">
 <td><code>ASTpct</code></td>
-<td>An estimated percentage of teammate field goals a player assisted while they are on the court.</td>
+<td>An estimated percentage of field goals a player assisted while they are on the court.</td>
 </tr>
 <tr class="odd">
 <td><code>SPG</code></td>
@@ -3591,7 +3591,7 @@ X_{n}
 </tr>
 <tr class="even">
 <td><code>VI</code></td>
-<td>The player’s versatility index, a metric that measures a player’s ability to produce in points, assists, and rebounds.</td>
+<td>The player’s versatility index, which measures a player’s ability to produce in points, assists, and rebounds.</td>
 </tr>
 <tr class="odd">
 <td><code>ORTG</code></td>
